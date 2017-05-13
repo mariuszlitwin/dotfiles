@@ -1,0 +1,57 @@
+{
+  "color": {
+    "black":    "000000",
+    "lblack":   "333333",
+    "white":    "dcdcdc",
+    "lwhite":   "ffffff",
+    "red":      "afafaf",
+    "lred":     "cccccc",
+    "green":    "cfcfcf",
+    "lgreen":   "ececec",
+    "blue":     "a6a6a6",
+    "lblue":    "c4c4c4",
+    "yellow":   "dddddd",
+    "lyellow":  "f9f9f9",
+    "magenta":  "b3b3b3",
+    "lmagenta": "d0d0d0",
+    "cyan":     "d4d4d4",
+    "lcyan":    "f0f0f0",
+
+    "background":  "111111",
+    "lbackground": "000000",
+    "foreground":  "eeeeee",
+    "lforeground": "ffffff",
+
+    "primary-bg":  "333333",
+    "primary-fg":  "ffffff",
+    "lprimary-bg": "000000",
+    "lprimary-fg": "dcdcdc",
+
+    "danger-bg":   "e2a1a1",
+    "danger-fg":   "3d3d3d",
+    "ldanger-bg":  "ffbebe",
+    "ldanger-fg":  "dfdfdf",
+
+    "success-bg":  "a1e2a1",
+    "success-fg":  "3d3d3d",
+    "lsuccess-bg": "beffbe",
+    "lsuccess-fg": "dfdfdf",
+
+    "warning-bg":  "e2e2a1",
+    "warning-fg":  "3d3d3d",
+    "lwarning-bg": "ffffbe",
+    "lwarning-fg": "dfdfdf",
+
+    "info-bg":     "a1a1e2",
+    "info-fg":     "3d3d3d",
+    "linfo-bg":    "bebeff",
+    "linfo-fg":    "dfdfdf"
+  },
+  "font": {
+    "base": "Ubuntu",
+    "monospace": "Ubuntu Mono",
+    "sans": "Ubuntu",
+    "serif": "Georgia",
+    "pixelsize": 18
+  }
+}
