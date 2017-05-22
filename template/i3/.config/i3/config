@@ -24,10 +24,10 @@ bindsym $mod+Return exec termite -c /etc/xdg/termite/config
 bindsym $mod+Shift+q kill
 
 # start dmenu
-bindsym $mod+d exec /run/current-system/sw/bin/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %> <% font.pixelsize %>px' -p '> '"
+bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %> <% font.pixelsize %>px' -p '> '"
 
 # lock screen
-bindsym $mod+l exec /run/current-system/sw/bin/i3lock-color --insidevercolor=<% color.background %>ff --insidewrongcolor=<% color.background %>ff --insidecolor=<% color.background %>ff --ringvercolor=<% color.primary-bg %>ff --ringwrongcolor=<% color.danger-bg %>ff --ringcolor=<% color.lbackground %>ff --linecolor=<% color.background %>ff --separatorcolor=<% color.background %>ff --keyhlcolor=<% color.primary-bg %>ff --bshlcolor=<% color.primary-bg %>ff -c <% color.background %>
+bindsym $mod+l exec <% system.binpath %>/i3lock-color
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -155,7 +155,7 @@ bar {
   }
   position bottom
   font pango:<% font.base %> <% font.pixelsize %>px, EmojiOne 16px
-  status_command /run/current-system/sw/bin/i3status -c /etc/i3/i3status.conf
+  status_command <% system.binpath %>/i3status -c ~/.config/i3status/config
 }
 
 

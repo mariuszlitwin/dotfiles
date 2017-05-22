@@ -43,11 +43,16 @@ sub template {
 sub dirwalk {
     my $dirname = shift;
     my $callback = shift;
-
-    foreach (<$dirname/*>) {
-        if (-d $_) { $callback->($_); dirwalk($_, $callback); }
-        else { $callback->($_); }
+    
+    opendir(my $dh, $dirname) or die "Can't open $dirname: $!";
+    while (readdir $dh) {
+        unless ($_ eq "." or $_ eq "..") {
+          my $cpath = "$dirname/$_";
+          if (-d $cpath) { $callback->($cpath); dirwalk($cpath, $callback); }
+          else { $callback->($cpath); }
+        }
     }
+    closedir $dh;
 }
 
 sub build {

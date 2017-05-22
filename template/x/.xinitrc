@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 #
-# /etc/X11/xinitrc : DO NOT EDIT -- this file has been generated automatically
+# .xinitrc : DO NOT EDIT -- this file has been generated automatically
 #
-# Ref.: /etc/nixos/dotfiles/xinirc
+# Ref.: dotfiles/template/x/.xinitrc
 
 [[ -f /etc/X11/xresources ]] && xrdb -merge /etc/X11/xresources
 

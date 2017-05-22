@@ -1,4 +1,8 @@
 {
+  "system": {
+    "distro": "Ubuntu",
+    "binpath": "/usr/bin"
+  },
   "color": {
     "black":    "000000",
     "lblack":   "333333",
