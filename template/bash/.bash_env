@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# .bash_env : DO NOT EDIT -- this file has been generated automatically
+#
+# Ref.: dotfiles/template/bash/.bash_env
+
+export TERMINAL="urxvt"
+export EDITOR="vi"

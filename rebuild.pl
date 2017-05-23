@@ -48,8 +48,14 @@ sub dirwalk {
     while (readdir $dh) {
         unless ($_ eq "." or $_ eq "..") {
           my $cpath = "$dirname/$_";
-          if (-d $cpath) { $callback->($cpath); dirwalk($cpath, $callback); }
-          else { $callback->($cpath); }
+          if (-d $cpath) {
+            print "Going down to $cpath directory\n";
+            $callback->($cpath);
+            dirwalk($cpath, $callback); 
+          } else {
+            print "Processing $cpath file\n";
+            $callback->($cpath); 
+          }
         }
     }
     closedir $dh;

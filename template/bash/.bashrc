@@ -2,7 +2,7 @@
 #
 # .bashrc : DO NOT EDIT -- this file has been generated automatically
 #
-# Ref.: dotfiles/bash/.bashrc
+# Ref.: dotfiles/template/bash/.bashrc
 
 # If not running interactively, don't do anything
 case $- in
@@ -25,13 +25,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # Is current terminal able to display color?
 if [ -x /run/current-system/sw/bin/tput ] && tput setaf 1 >& /dev/null; then
   export IS_COLOR_TERM=true
@@ -47,149 +40,25 @@ if [ "$TERM" = "linux" ] && [ -f ~/.Xresources ] && [[ "$IS_COLOR_TERM" = true ]
   clear
 fi
 
-# Terminal formating options as described on:
-# Ref.: http://misc.flogisoft.com/bash/tip_colors_and_formatting
-function __format_set {
-  case "$1" in
-    bold)        tput bold;;
-    italic)      tput sitm;;
-    dim)         tput dim;;
-    underline)   tput smul;;
-    blink)       tput blink;;
-    reverse)     tput rev;;
-    highlight)   tput smso;;
-    fg:black)    tput setaf 0;;
-    fg:red)      tput setaf 1;;
-    fg:green)    tput setaf 2;;
-    fg:yellow)   tput setaf 3;;
-    fg:blue)     tput setaf 4;;
-    fg:magenta)  tput setaf 5;;
-    fg:cyan)     tput setaf 6;;
-    fg:white)    tput setaf 7;;
-    fg:lblack)   tput setaf 8;;
-    fg:lred)     tput setaf 9;;
-    fg:lgreen)   tput setaf 10;;
-    fg:lyellow)  tput setaf 11;;
-    fg:lblue)    tput setaf 12;;
-    fg:lmagenta) tput setaf 13;;
-    fg:lcyan)    tput setaf 14;;
-    fg:lwhite)   tput setaf 15;;
-    bg:black)    tput setab 0;;
-    bg:red)      tput setab 1;;
-    bg:green)    tput setab 2;;
-    bg:yellow)   tput setab 3;;
-    bg:blue)     tput setab 4;;
-    bg:magenta)  tput setab 5;;
-    bg:cyan)     tput setab 6;;
-    bg:white)    tput setab 7;;
-    bg:lblack)   tput setab 8;;
-    bg:lred)     tput setab 9;;
-    bg:lgreen)   tput setab 10;;
-    bg:lyellow)  tput setab 11;;
-    bg:lblue)    tput setab 12;;
-    bg:lmagenta) tput setab 13;;
-    bg:lcyan)    tput setab 14;;
-  esac
-}
-# Format reset options
-function __format_reset {
-  case "$1" in
-    italic)      tput ritm;;
-    highlight)   tput rmso;;
-    underline)   tput rmul;;
-    all)         tput sgr0;;
-  esac
-}
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
-# Wrappers to set (_fs) or reset (_fr) formatting
-#
-# Wrappers are aware of IS_COLOR_TERM variable but beyond that they are 
-# pretty dumb
-#
-# usage: _fs format1 [format2 [format3 [...]]]
-function _fs {
-  if [[ "$IS_COLOR_TERM" = true ]]; then
-    echo -en "\[";
-    while [[ $# -gt 0 ]]; do
-      __format_set $1;
-      shift;
-    done
-    echo -en "\]";
-  fi;
-}
-function _fr {
-  if [[ "$IS_COLOR_TERM" = true ]]; then
-    echo -en "\[";
-    while [[ $# -gt 0 ]]; do
-      __format_reset $1;
-      shift;
-    done
-    echo -en "\]";
-  fi;
-}
+# Environment variable definitions.
+# You may want to put all your environment variables into a separate file
+# like ~/.bash_env, instead of adding them here directly.
+if [ -f ~/.bash_env ]; then
+    . ~/.bash_env
+fi
 
-# Print different message in different formating based on exit code
-#
-# usage: __exit_code exit_code msg_if_ok msg_if_error
-function __exit_code {
-  local exit_code="$1";
-  if [ $exit_code -eq 0 ]; then
-    _fs fg:green; printf '█'; _fr all;
-  else
-    _fs fg:red; printf '░'; _fr all;
-  fi
-}
+# Prompt definition.
+# You may want to put all your prompt info into a separate file like
+# ~/.bash_prompt, instead of adding them here directly.
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+fi
 
-# Print message in different format baseed on +w rights of current user in
-# current directory
-#
-# usage: __dir_info msg
-function __dir_info {
-  if [[ -w '.' ]]; then 
-    _fr all; printf ' '; printf $1; printf ' ';
-  else
-    _fs fg:red; printf ' '; printf $1; printf ' '; _fr all;
-  fi;
-}
 
-# Additional info if current dir is git repository
-#
-# usage: gitinfo
-function __git_info { 
-  local GIT_BRANCH_SYMBOL='└┐┘ '
-  local GIT_BRANCH_CHANGED_SYMBOL='+'
-  local GIT_NEED_PUSH_SYMBOL='▲'
-  local GIT_NEED_PULL_SYMBOL='▼'
-
-  [ -x "$(which git)" ] || return    # git not found
-
-  local git_eng="env LANG=C git"   # force git output in English to make our work easier
-  # get current branch name or short SHA1 hash for detached head
-  local branch="$($git_eng symbolic-ref --short HEAD 2>/dev/null || $git_eng describe --tags --always 2>/dev/null)"
-  [ -n "$branch" ] || return  # git branch not found
-
-  local marks
-
-  # branch is modified?
-  [ -n "$($git_eng status --porcelain)" ] && marks+=" $GIT_BRANCH_CHANGED_SYMBOL"
-
-  # how many commits local branch is ahead/behind of remote?
-  local stat="$($git_eng status --porcelain --branch | grep '^##' | grep -o '\[.\+\]$')"
-  local aheadN="$(echo $stat | grep -o 'ahead [[:digit:]]\+' | grep -o '[[:digit:]]\+')"
-  local behindN="$(echo $stat | grep -o 'behind [[:digit:]]\+' | grep -o '[[:digit:]]\+')"
-  [ -n "$aheadN" ] && marks+=" $GIT_NEED_PUSH_SYMBOL$aheadN"
-  [ -n "$behindN" ] && marks+=" $GIT_NEED_PULL_SYMBOL$behindN"
-
-  # print the git branch segment without a trailing newline
-  _fs bg:blue; echo -n " $GIT_BRANCH_SYMBOL$branch$marks "; _fr all;
-}
-
-function __prompt {
-  local EXIT="$?";
-
-  if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ] && [ -n "$PS1" ]; then
-    export PS1="$(__git_info)$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
-  fi;
-}
-
-export PROMPT_COMMAND=__prompt
