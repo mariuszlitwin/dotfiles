@@ -4,18 +4,20 @@
 #
 # Ref.: dotfiles/template/x/.xinitrc
 
-[[ -f /etc/X11/xresources ]] && xrdb -merge /etc/X11/xresources
+if [ -f ~/.Xresources ]; then
+  xrdb -merge ~/.Xresources
+fi;
 
 # Is current terminal able to display color?
-if [ -x /run/current-system/sw/bin/tput ] && tput setaf 1 >& /dev/null; then
+if [ -x <% system.binpath %>/tput ] && tput setaf 1 >& /dev/null; then
   export IS_COLOR_TERM=true
 else
   export IS_COLOR_TERM=false
 fi;
 
 # Change default colors on default TTY
-if [ "$TERM" = "linux" ] && [ -f /etc/X11/xresources ] && [[ "$IS_COLOR_TERM" = true ]]; then
-  for i in $(grep color "/etc/X11/xresources" | sed 's/^\*color//g' | sed 's/:\ *#/ /g' | awk '{ printf "\\e]P%X%s", $1, $2 }' ); do
+if [ "$TERM" = "linux" ] && [ -f ~/.Xresources ] && [[ "$IS_COLOR_TERM" = true ]]; then
+  for i in $(grep color "~/.Xresources" | sed 's/^\*color//g' | sed 's/:\ *#/ /g' | awk '{ printf "\\e]P%X%s", $1, $2 }' ); do
     echo -en "$i"
   done
   clear

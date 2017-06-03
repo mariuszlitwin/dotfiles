@@ -6,6 +6,7 @@
 
 # Terminal formating options as described on:
 # Ref.: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+
 function __format_set {
   case "$1" in
     bold)        tput bold;;

@@ -25,19 +25,11 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Is current terminal able to display color?
-if [ -x /run/current-system/sw/bin/tput ] && tput setaf 1 >& /dev/null; then
-  export IS_COLOR_TERM=true
-else
-  export IS_COLOR_TERM=false
-fi;
-
-# Change default colors on default TTY
-if [ "$TERM" = "linux" ] && [ -f ~/.Xresources ] && [[ "$IS_COLOR_TERM" = true ]]; then
-  for i in $(grep color "/etc/X11/xresources" | sed 's/^\*color//g' | sed 's/:\ *#/ /g' | awk '{ printf "\\e]P%X%s", $1, $2 }' ); do
-    echo -en "$i"
-  done
-  clear
+# Run xinitrc
+# I'm not sure if it's necessary but I want my environment
+# variables set properly for sure
+if [ -f ~/.xinitrc ]; then
+    . ~/.xinitrc
 fi
 
 # Alias definitions.
@@ -60,5 +52,3 @@ fi
 if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
-
-
