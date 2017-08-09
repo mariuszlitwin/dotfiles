@@ -52,3 +52,11 @@ fi
 if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
+
+# pyenv
+# If pyens is installed then it will be included by default
+if [ -d ~/.pyenv/bin ]; then
+    export PATH="~/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
