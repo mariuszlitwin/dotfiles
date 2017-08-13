@@ -15,3 +15,5 @@ alias ps="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 alias myip="curl http://ipecho.net/plain; echo"
+
+alias dotfiles="perl ~/dotfiles/rebuild.pl"
