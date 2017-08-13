@@ -4,5 +4,4 @@
 #
 # Ref.: dotfiles/template/bash/.bash_env
 
-export TERMINAL="urxvt"
 export EDITOR="vi"
