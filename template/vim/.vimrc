@@ -25,3 +25,7 @@ set tabstop=4
 
 set ai
 set si
+
+if exists('+colorcolumn')
+    set colorcolumn=80
+endif
