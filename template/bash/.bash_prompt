@@ -121,7 +121,8 @@ function __git_info {
 
   [ -x "$(which git)" ] || return    # git not found
 
-  local git_eng="env LANG=C git"   # force git output in English to make our work easier
+  # force git output in English to make our work easier
+  local git_eng="env LANG=C git"
   # get current branch name or short SHA1 hash for detached head
   local branch="$($git_eng symbolic-ref --short HEAD 2>/dev/null || $git_eng describe --tags --always 2>/dev/null)"
   [ -n "$branch" ] || return  # git branch not found
@@ -147,7 +148,7 @@ function __prompt {
 
   if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ] && [ -n "$PS1" ]; then
     export PS1="$(__git_info)$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
-    export PS2="► "
+    export PS2="| "
   fi;
 }
 

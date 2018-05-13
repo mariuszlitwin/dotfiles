@@ -14,6 +14,8 @@ alias free="free -mt"
 alias ps="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
+alias stow="stow -d ~/dotfiles/build -t ~/"
+
 alias myip="curl http://ipecho.net/plain; echo"
 
 alias dotfiles="perl ~/dotfiles/rebuild.pl"

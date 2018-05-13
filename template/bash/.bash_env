@@ -5,3 +5,6 @@
 # Ref.: dotfiles/template/bash/.bash_env
 
 export EDITOR="vi"
+export PATH="/home/mariusz/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

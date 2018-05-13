@@ -14,7 +14,8 @@ sub flatten {
     my %flathash;
 
     foreach (keys %{$hash}) {
-	my @cprefix = grep(length, ($prefix, $_));
+	    my @cprefix = grep(length, ($prefix, $_));
+        
         if (ref($hash->{$_}) eq "HASH") {
             %flathash = (%flathash, flatten($hash->{$_}, $_));
         } elsif (ref($hash->{$_}) eq "ARRAY") {
@@ -22,20 +23,19 @@ sub flatten {
                 $flathash{join('.', (@cprefix, $i))} = $v;
             }
         } else {
-	    $flathash{join('.', @cprefix)} = $hash->{$_};
-	}
+            $flathash{join('.', @cprefix)} = $hash->{$_};
+        }
     }
     return %flathash;
 }
 
 sub template {
-    my $text = shift;
-    my $vars = shift;
+    my ($text, $vars) = @_;
 
     foreach (keys %{$vars}) {
-	my $find = quotemeta "<% $_ %>";
-	my $replace = $vars->{$_};
-        $text =~ s/$find/$replace/g
+    	my $find = quotemeta "<% $_ %>";
+	    my $replace = $vars->{$_};
+            $text =~ s/$find/$replace/g
     }
     return $text;
 }
@@ -43,19 +43,22 @@ sub template {
 sub dirwalk {
     my $dirname = shift;
     my $callback = shift;
+    my $skiphidden = shift // 0;
     
-    opendir(my $dh, $dirname) or die "Can't open $dirname: $!";
+    opendir(my $dh, $dirname) or die "[ERROR] Can't open $dirname: $!";
     while (readdir $dh) {
         unless ($_ eq "." or $_ eq "..") {
-          my $cpath = "$dirname/$_";
-          if (-d $cpath) {
-            print "Going down to $cpath directory\n";
-            $callback->($cpath);
-            dirwalk($cpath, $callback); 
-          } else {
-            print "Processing $cpath file\n";
-            $callback->($cpath); 
-          }
+            my $cpath = "$dirname/$_";
+            if (-d $cpath) {
+                print "[INFO] Going down to $cpath directory\n";
+                $callback->($cpath);
+                dirwalk($cpath, $callback); 
+            } else {
+                unless ($skiphidden and substr($_, 0, 1) eq '.') {
+                    print "[INFO] Processing $cpath file\n";
+                    $callback->($cpath);
+                }
+            }
         }
     }
     closedir $dh;
@@ -66,21 +69,18 @@ sub build {
 
     if (-d $path) {
         $path =~ s/$tdir/$bdir/;
-        mkdir $path or die("Failed to create directory $path: $!");
+        mkdir $path or die("[ERROR] Failed to create directory $path: $!");
     } else {
-	open(my $ifh, "<:encoding(UTF-8)", $path)
-            or die("Failed to open file $path: $!");
+        open(my $ifh, "<:encoding(UTF-8)", $path)
+            or die("[ERROR] Failed to open file $path: $!");
 
         $path =~ s/$tdir/$bdir/;
         open(my $ofh, ">:encoding(UTF-8)", $path)
-            or die ("Failed to open file $path: $!");
+            or die ("[ERROR] Failed to open file $path: $!");
 
-	print $ofh map { template($_, $flatconfig) } <$ifh>;
-
-	close($ifh)
-            or warn("Failed to close file $path: $!");
-	close($ofh)
-            or warn("Failed to close file $path, $!");
+        print $ofh map { template($_, $flatconfig) } <$ifh>;
+        close($ifh) or warn("[WARNING] Failed to close file $path: $!");
+        close($ofh) or warn("[WARNING] Failed to close file $path, $!");
     }
 }
 
@@ -91,12 +91,24 @@ sub buildconf {
     }
 }
 
+sub runinit {
+    my $path = $_[0];
+    system("bash", $path);
+}
+
 my $filepath   = $ARGV[0];
 my $scriptdir  = dirname($0);
 my $configpath = "$scriptdir/config.json";
 my $config     = Parse::CPAN::Meta->load_file($configpath);
 my %flatconfig = flatten($config);
 
+print chr(7);
+print "[PHASE] Configuring OS\n";
+dirwalk("$scriptdir/init", \&runinit, 1);
+print chr(7);
+print "[PHASE] Building dotfiles\n";
 rmtree("$scriptdir/build");
 mkdir("$scriptdir/build");
 dirwalk("$scriptdir/template", buildconf(\%flatconfig, 'template', 'build'));
+print chr(7);
+print "[PHASE] Build finished. Now you can stow your things out.\n";
