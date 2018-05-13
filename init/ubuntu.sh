@@ -30,6 +30,7 @@ fi
 sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     llvm xz-utils tk-dev \
                     python python3 python-dev python3-dev \
+                    python-pip python3-pip \
                     libssl-dev zlib1g-dev libbz2-dev bzip2 \
                     libreadline-dev libsqlite3-dev \
                     libncurses5-dev libncursesw5-dev \
