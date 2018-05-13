@@ -102,13 +102,15 @@ my $configpath = "$scriptdir/config.json";
 my $config     = Parse::CPAN::Meta->load_file($configpath);
 my %flatconfig = flatten($config);
 
-print chr(7);
-print "[PHASE] Configuring OS\n";
-dirwalk("$scriptdir/init", \&runinit, 1);
-print chr(7);
+my $mode = shift @ARGV // '';
+
+if ($mode eq 'init') {
+    print chr(7);
+    print "[PHASE] Configuring OS\n";
+    dirwalk("$scriptdir/init", \&runinit, 1);
+}
 print "[PHASE] Building dotfiles\n";
 rmtree("$scriptdir/build");
 mkdir("$scriptdir/build");
 dirwalk("$scriptdir/template", buildconf(\%flatconfig, 'template', 'build'));
-print chr(7);
 print "[PHASE] Build finished. Now you can stow your things out.\n";

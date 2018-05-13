@@ -112,7 +112,7 @@ function __dir_info {
 
 # Additional info if current dir is git repository
 #
-# usage: gitinfo
+# usage: __git_info
 function __git_info { 
   local GIT_BRANCH_SYMBOL='└┐┘ '
   local GIT_BRANCH_CHANGED_SYMBOL='+'
@@ -143,11 +143,24 @@ function __git_info {
   _fs bg:blue; echo -n " $GIT_BRANCH_SYMBOL$branch$marks "; _fr all;
 }
 
+# Additional info if currently in some kind of development jail
+# e.g. (Python virtualenv)
+#
+# usage: __devjail_info
+function __devjail_info {
+    jails=''
+    # init Python virtualenv
+    [ $VIRTUAL_ENV ] && jails+="py:$(basename $VIRTUAL_ENV) "
+    if [[ ! -z $jails ]]; then
+        _fs bg:yellow fg:black; echo -n " "; echo -n "${jails}"; _fr all;
+    fi
+}
+
 function __prompt {
   local EXIT="$?";
 
   if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ] && [ -n "$PS1" ]; then
-    export PS1="$(__git_info)$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
+    export PS1="$(__devjail_info)$(__git_info)$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
     export PS2="| "
   fi;
 }
