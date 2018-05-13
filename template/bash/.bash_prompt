@@ -119,13 +119,13 @@ function __git_info {
   local GIT_NEED_PUSH_SYMBOL='▲'
   local GIT_NEED_PULL_SYMBOL='▼'
 
-  [ -x "$(which git)" ] || return    # git not found
+  [ -x "$(which git)" ] || return 0 # git not found
 
   # force git output in English to make our work easier
   local git_eng="env LANG=C git"
   # get current branch name or short SHA1 hash for detached head
   local branch="$($git_eng symbolic-ref --short HEAD 2>/dev/null || $git_eng describe --tags --always 2>/dev/null)"
-  [ -n "$branch" ] || return  # git branch not found
+  [ -n "$branch" ] || return 0 # git branch not found
 
   local marks
 
@@ -141,6 +141,7 @@ function __git_info {
 
   # print the git branch segment without a trailing newline
   _fs bg:blue; echo -n " $GIT_BRANCH_SYMBOL$branch$marks "; _fr all;
+  return 1
 }
 
 # Additional info if currently in some kind of development jail
@@ -148,19 +149,33 @@ function __git_info {
 #
 # usage: __devjail_info
 function __devjail_info {
-    jails=''
-    # init Python virtualenv
-    [ $VIRTUAL_ENV ] && jails+="py:$(basename $VIRTUAL_ENV) "
-    if [[ ! -z $jails ]]; then
-        _fs bg:yellow fg:black; echo -n " "; echo -n "${jails}"; _fr all;
-    fi
+  local jails=''
+
+  # init Python virtualenv
+  [ $VIRTUAL_ENV ] && jails+="py:$(basename $VIRTUAL_ENV) "
+
+  [[ ! -z $jails ]] || return 0 # no jails currently used
+
+  _fs bg:yellow fg:black; echo -n " "; echo -n "${jails}"; _fr all;
+  return 1
 }
 
 function __prompt {
   local EXIT="$?";
 
   if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ] && [ -n "$PS1" ]; then
-    export PS1="$(__devjail_info)$(__git_info)$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
+    local blocks=''
+    local blockscount=0
+    local blocksep=''
+
+    for b in __devjail_info __git_info ; do
+      blocks+="$($b)"
+      let "blockscount = $blockscount + $?"
+    done
+
+    [[ "${blockscount}" -gt 1 ]] && blocksep='\n'
+    
+    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
     export PS2="| "
   fi;
 }
