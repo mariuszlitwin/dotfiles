@@ -15,6 +15,7 @@ alias ps="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 alias stow="stow -d ~/dotfiles/build -t ~/"
+alias gpg="gpg2"
 
 alias myip="curl http://ipecho.net/plain; echo"
 

@@ -23,6 +23,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+
 set ai
 set si
 

@@ -52,9 +52,9 @@
     "linfo-fg":    "232629"
   },
   "font": {
-    "base": "Noto Sans",
-    "monospace": "Hack",
-    "sans": "Noto Sans",
+    "base": "Ubuntu Regular",
+    "monospace": "Ubuntu Mono Regular",
+    "sans": "Ubuntu Regular",
     "serif": "Georgia",
     "pixelsize": 16
   }
