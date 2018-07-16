@@ -28,6 +28,7 @@ fi
 
 # Install apps
 sudo apt -y install git make build-essential wget curl stow unrar tmux \
+                    keepassxc \
                     llvm xz-utils tk-dev gnupg2 deja-dup duplicity deluge \
                     tlp tlp-rdw mc \
                     python python3 python-dev python3-dev \
@@ -39,7 +40,9 @@ sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     virtualbox \
                     snapd
 
-sudo snap install firefox vlc gimp tuxguitar-vs jq communitheme
+sudo snap install firefox vlc spotify \
+                  gimp inkscape \
+                  tuxguitar-vs jq communitheme
 
 # pyenv
 if ! [ -x "$(command -v pyenv)" ]; then

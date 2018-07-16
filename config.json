@@ -53,7 +53,7 @@
   },
   "font": {
     "base": "Ubuntu Regular",
-    "monospace": "Ubuntu Mono Regular",
+    "monospace": "Hack",
     "sans": "Ubuntu Regular",
     "serif": "Georgia",
     "pixelsize": 16
