@@ -21,7 +21,6 @@ gsettings set io.elementary.terminal.settings encoding 'utf-8'
 
 gsettings set io.elementary.terminal.settings remember-tabs false
 gsettings set io.elementary.terminal.settings follow-last-tab false
-gsettings set io.elementary.terminal.settings tab-bar-behavior 'Hide When Signle Tab'
 
 gsettings set io.elementary.terminal.settings natural-copy-paste true
 gsettings set io.elementary.terminal.settings unsafe-paste-alert true
