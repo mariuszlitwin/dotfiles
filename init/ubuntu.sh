@@ -28,8 +28,7 @@ fi
 
 # Install apps
 sudo apt -y install git make build-essential wget curl stow unrar tmux \
-                    keepassxc \
-                    llvm xz-utils tk-dev gnupg2 deja-dup duplicity deluge \
+                    llvm xz-utils tk-dev gnupg2 \
                     tlp tlp-rdw mc \
                     python python3 python-dev python3-dev \
                     python-pip python3-pip \
@@ -37,24 +36,13 @@ sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     libreadline-dev libsqlite3-dev \
                     libncurses5-dev libncursesw5-dev \
                     libappindicator1 libindicator7 \
-                    virtualbox \
                     snapd
 
-sudo snap install firefox vlc spotify \
-                  gimp inkscape \
-                  tuxguitar-vs jq communitheme
+snap install firefox
+snap install --edge sqlitebrowser
 
 # pyenv
 if ! [ -x "$(command -v pyenv)" ]; then
   # TODO: change to some package manager
   curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-fi
-
-# keybase
-if ! [ -x "$(command -v keybase)" ]; then
-  cd /tmp
-  curl -O https://prerelease.keybase.io/keybase_amd64.deb
-  sudo dpkg -i keybase_amd64.deb
-  sudo apt install -f
-  rm /tmp/keybase_amd64.deb
 fi
