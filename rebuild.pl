@@ -93,6 +93,7 @@ sub buildconf {
 
 sub runinit {
     my $path = $_[0];
+    print "[INFO] Running $path";
     system("bash", $path);
 }
 
@@ -113,4 +114,6 @@ print "[PHASE] Building dotfiles\n";
 rmtree("$scriptdir/build");
 mkdir("$scriptdir/build");
 dirwalk("$scriptdir/template", buildconf(\%flatconfig, 'template', 'build'));
+print "[PHASE] Running scripts in run-on-rebuild directory.\n";
+dirwalk("$scriptdir/build/run-on-rebuild", \&runinit, 1);
 print "[PHASE] Build finished. Now you can stow your things out.\n";
