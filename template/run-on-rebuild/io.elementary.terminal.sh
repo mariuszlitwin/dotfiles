@@ -16,7 +16,7 @@ gsettings set io.elementary.terminal.settings palette '#<% color.black %>:#<% co
 
 gsettings set io.elementary.terminal.settings prefer-dark-style false
 
-gsettings set io.elementary.terminal.settings font '<% font.monospace %> <% font.pixelsize %>'
+gsettings set io.elementary.terminal.settings font '<% font.monospace %> <% font.size %>'
 gsettings set io.elementary.terminal.settings encoding 'utf-8'
 
 gsettings set io.elementary.terminal.settings remember-tabs false
