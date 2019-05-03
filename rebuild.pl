@@ -46,7 +46,7 @@ sub dirwalk {
     my $skiphidden = shift // 0;
 
     opendir(my $dh, $dirname) or die "[ERROR] Can't open $dirname: $!";
-    while (readdir $dh) {
+    foreach $_ (sort readdir $dh) {
         unless ($_ eq "." or $_ eq "..") {
             my $cpath = "$dirname/$_";
             if (-d $cpath) {
