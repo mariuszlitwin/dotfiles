@@ -1,6 +1,6 @@
 [user]
-    email = mariusz.litwin@protonmail.com
+    email = mariusz.litwin@oposec.pl
     name = Mariusz Litwin
-    signingkey = CDB050FEA1D9838E
+#    signingkey = CDB050FEA1D9838E
 [commit]
-    gpgsign = true
+#    gpgsign = true
