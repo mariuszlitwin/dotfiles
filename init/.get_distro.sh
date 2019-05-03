@@ -19,4 +19,4 @@ elif [[ -r '/etc/redhat-release' ]]; then
     n='Red Hat'
 fi
 [[ "${n:-}" = '' ]] && \echo "ERROR: Could not determine the distro name" >&2 && \exit 1
-echo ${n:-}
+echo ${n:-} | tr '[:upper:]' '[:lower:]'
