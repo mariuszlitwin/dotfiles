@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# init/apt.sh
+# init/101.apt.sh
 #
 # Install apt-based packages
 
@@ -31,5 +31,5 @@ sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     libncurses5-dev libncursesw5-dev \
                     libappindicator1 libindicator7 \
                     fonts-hack-ttf dconf-editor \
-                    flatpak
+                    snapd flatpak
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# init/always.sh
+# init/000.always.sh
 #
 # Run some basic init thingies
 

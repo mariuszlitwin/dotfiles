@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# init/ubuntu.sh
+# init/201.ubuntu.sh
 #
 # Init Ubuntu-based distro to sane setup
 
@@ -19,6 +19,3 @@ source "${__dir}/.invocation.sh"
 if [[ "$__mode" = 'bootstrap' ]]; then
   sudo apt -y purge firefox
 fi
-
-snap install firefox
-snap install --edge sqlitebrowser

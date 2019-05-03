@@ -13,15 +13,19 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 source "${__dir}/.invocation.sh"
 
-which flatpak > /dev/null 2> /dev/null
+which snap > /dev/null 2> /dev/null
 [[ $? -ne 0 ]] && exit 1
 
-# Add repos
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak remote-add --if-not-exists nuvola https://dl.tiliado.eu/flatpak/nuvola.flatpakrepo
+# Initial login
+if [[ "${__mode}" = 'bootstrap' ]]; then 
+  sudo snap login
+fi
 
 # Update/Upgrade
-flatpak update
+if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then 
+  snap refresh
+fi
 
-# Tidal
-flatpak install -y nuvola eu.tiliado.NuvolaAppTidal
+# bitwarden
+snap install bitwarden
+snap install bw
