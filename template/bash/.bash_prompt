@@ -174,8 +174,8 @@ function __prompt {
     done
 
     [[ "${blockscount}" -gt 1 ]] && blocksep='\n'
-    
-    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \u@\h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
+
+    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
     export PS2="| "
   fi;
 }
