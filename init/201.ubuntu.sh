@@ -22,9 +22,3 @@ fi
 
 snap install firefox
 snap install --edge sqlitebrowser
-
-# pyenv
-if ! [ -x "$(command -v pyenv)" ]; then
-  # TODO: change to some package manager
-  curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-fi
