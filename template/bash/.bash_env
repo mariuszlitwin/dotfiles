@@ -5,7 +5,7 @@
 # Ref.: dotfiles/template/bash/.bash_env
 
 export EDITOR="vi"
-export PATH="/home/mariusz/.pyenv/bin:$PATH"
+export PATH="/home/$USER/.pyenv/bin:$PATH"
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
