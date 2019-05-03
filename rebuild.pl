@@ -14,8 +14,8 @@ sub flatten {
     my %flathash;
 
     foreach (keys %{$hash}) {
-	    my @cprefix = grep(length, ($prefix, $_));
-        
+        my @cprefix = grep(length, ($prefix, $_));
+
         if (ref($hash->{$_}) eq "HASH") {
             %flathash = (%flathash, flatten($hash->{$_}, $_));
         } elsif (ref($hash->{$_}) eq "ARRAY") {
@@ -33,8 +33,8 @@ sub template {
     my ($text, $vars) = @_;
 
     foreach (keys %{$vars}) {
-    	my $find = quotemeta "<% $_ %>";
-	    my $replace = $vars->{$_};
+        my $find = quotemeta "<% $_ %>";
+        my $replace = $vars->{$_};
             $text =~ s/$find/$replace/g
     }
     return $text;
@@ -44,7 +44,7 @@ sub dirwalk {
     my $dirname = shift;
     my $callback = shift;
     my $skiphidden = shift // 0;
-    
+
     opendir(my $dh, $dirname) or die "[ERROR] Can't open $dirname: $!";
     while (readdir $dh) {
         unless ($_ eq "." or $_ eq "..") {
