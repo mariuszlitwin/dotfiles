@@ -93,7 +93,7 @@ sub buildconf {
 
 sub runinit {
     my $path = $_[0];
-    print "[INFO] Running $path";
+    print "[INFO] Running $path\n";
     system("bash", $path);
 }
 
