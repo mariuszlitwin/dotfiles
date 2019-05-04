@@ -30,7 +30,6 @@ sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     libreadline-dev libsqlite3-dev \
                     libncurses5-dev libncursesw5-dev \
                     libappindicator1 libindicator7 \
-                    fonts-hack-ttf \
                     dconf-editor menulibre gnome-tweaks \
                     snapd flatpak
 
