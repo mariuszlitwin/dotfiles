@@ -28,4 +28,4 @@ function __bw_macro() {
         bw "$@"
     fi
 }
-alias bw=__bw_macro
+alias pw=__bw_macro
