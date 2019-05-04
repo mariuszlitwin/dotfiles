@@ -31,5 +31,7 @@ sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     libncurses5-dev libncursesw5-dev \
                     libappindicator1 libindicator7 \
                     dconf-editor menulibre gnome-tweaks \
+                    virtualbox \
+                    xclip \
                     snapd flatpak
 
