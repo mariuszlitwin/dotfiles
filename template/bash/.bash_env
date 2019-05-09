@@ -5,8 +5,11 @@
 # Ref.: dotfiles/template/bash/.bash_env
 
 export EDITOR="vi"
-export PATH="/home/$USER/.pyenv/bin:$PATH"
 
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -d "/home/$USER/.pyenv" ]; then
+    export PATH="/home/$USER/.pyenv/bin:$PATH"
+
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
