@@ -18,6 +18,8 @@ alias gpg="gpg2"
 
 alias myip="curl http://ipecho.net/plain; echo"
 
+alias xclip="xclip -selection clipboard"
+
 alias stow="stow -d ~/dotfiles/build -t ~/"
 alias dotfiles="perl ~/dotfiles/rebuild.pl"
 
