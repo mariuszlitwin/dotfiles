@@ -4,7 +4,7 @@
 #
 # Ref.: dotfiles/template/x/.xinitrc
 
-if [ -f ~/.Xresources ]; then
+if [[ -f ~/.Xresources ]] && which xrdb > /dev/null 2>&1; then
   xrdb -merge ~/.Xresources
 fi;
 
