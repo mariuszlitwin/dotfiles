@@ -61,7 +61,7 @@ function __format_reset {
 
 # Wrappers to set (_fs) or reset (_fr) formatting
 #
-# Wrappers are aware of IS_COLOR_TERM variable but beyond that they are 
+# Wrappers are aware of IS_COLOR_TERM variable but beyond that they are
 # pretty dumb
 #
 # usage: _fs format1 [format2 [format3 [...]]]
@@ -149,14 +149,20 @@ function __git_info {
 #
 # usage: __devjail_info
 function __devjail_info {
-  local jails=''
+  local jails=()
 
   # init Python virtualenv
-  [ $VIRTUAL_ENV ] && jails+="py:$(basename $VIRTUAL_ENV) "
+  [ $VIRTUAL_ENV ] && jails+=("py:$(basename $VIRTUAL_ENV) ")
+  cat /proc/self/cgroup | grep "0::/system.slice/containerd.service" > /dev/null 2>&1 && \
+      jails+=("dkr:$(hostname) ")
 
   [[ ! -z $jails ]] || return 0 # no jails currently used
 
-  _fs bg:yellow fg:black; echo -n " "; echo -n "${jails}"; _fr all;
+  for (( i=0; i<${#jails[@]}; i++ )); do
+    if [[ $(($i % 2)) -eq 1 ]]; then _fs bg:green fg:black;
+    else _fs bg:cyan fg:black; fi
+    echo -n " "; echo -n "${jails[$i]}"; _fr all;
+  done
   return 1
 }
 
