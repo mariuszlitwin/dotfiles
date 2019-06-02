@@ -30,8 +30,17 @@ sudo apt -y install git make build-essential wget curl stow unrar tmux \
                     libreadline-dev libsqlite3-dev \
                     libncurses5-dev libncursesw5-dev \
                     libappindicator1 libindicator7 \
+                    gconf-service \
                     dconf-editor menulibre gnome-tweaks \
                     virtualbox docker.io \
                     xclip \
                     snapd flatpak
 
+curl https://prerelease.keybase.io/keybase_amd64.deb \
+     -o /tmp/keybase_amd64.deb
+curl https://prerelease.keybase.io/keybase_amd64.deb.sig \
+     -o /tmp/keybase_amd64.deb.sig
+curl https://keybase.io/docs/server_security/code_signing_key.asc \
+    -o /tmp/keybase.asc
+
+gpg --import /tmp/keybase.asc
