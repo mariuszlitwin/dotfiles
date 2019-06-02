@@ -26,7 +26,7 @@ if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then
   snap refresh
 fi
 
-snap install gimp
+snap install gimp inkscape
 
 # sqlite
 snap install --edge sqlitebrowser
