@@ -26,10 +26,11 @@ if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then
   snap refresh
 fi
 
+# graphics
 snap install gimp inkscape
 
-# sqlite
-snap install --edge sqlitebrowser
+# browsers
+snap install firefox
 
 # bitwarden
 snap install bitwarden
