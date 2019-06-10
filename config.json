@@ -21,15 +21,15 @@
     "cyan":     "1abc9c",
     "lcyan":    "1cdc9a",
 
-    "background":  "232629",
+    "background":  "3c3b37",
     "lbackground": "919394",
     "foreground":  "fcfcfc",
     "lforeground": "ffffff",
 
-    "primary-bg":  "3daee9",
-    "primary-fg":  "232629",
+    "primary-bg":  "87a556",
+    "primary-fg":  "3c3b37",
     "lprimary-bg": "3d95e9",
-    "lprimary-fg": "232629",
+    "lprimary-fg": "3c3b37",
 
     "danger-bg":   "ed2929",
     "danger-fg":   "262629",
