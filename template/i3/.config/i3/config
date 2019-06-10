@@ -14,16 +14,16 @@ font pango:<% font.base %> <% font.pixelsize %>px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec mate-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+w kill
 
 # start dmenu
 bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %> <% font.pixelsize %>px' -p '> '"
 
 # lock screen
-bindsym $mod+l exec <% system.binpath %>/i3lock-color
+bindsym $mod+l exec <% system.binpath %>/xsecurelock
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -47,39 +47,15 @@ bindsym $mod+minus split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# Capture a screenshot
-bindsym --release Print exec scrot
-
-# Increase the volume by 10%
-bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
-
-# Decrease the volume by 10%
-bindsym XF86AudioLowerVolume exec amixer set Master 10%-
-
-# Toggle mute/unmute of the volume
-bindsym XF86AudioMute exec amixer set Master toggle
-
-# Increase screen brightness by 10%
-bindsym XF86MonBrightnessUp exec light -A 10 -s acpi_video0
-
-# Decrease screen brightness by 10%
-bindsym XF86MonBrightnessDown exec light -U 10 -s acpi_video0
-
-# Display settings
-bindsym XF86Display exec arandr
-
-# Toggle Wi-Fi
-bindsym XF86WLAN exec bash -c '[ "$(</sys/class/rfkill/rfkill0/state)" = "1" ] && sudo rfkill block 0 || sudo rfkill unblock 0'
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -109,8 +85,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, please' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -135,25 +109,3 @@ client.unfocused        #<% color.background %> #<% color.background %> #<% colo
 client.urgent           #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %> #<% color.danger-bg %> #<% color.danger-bg %>
 client.placeholder      #<% color.background %> #<% color.background %> #<% color.lforeground %> #<% color.background %> #<% color.background %>
 client.background       #<% color.background %>
-
-bar {
-  colors {
-    background #<% color.background %>
-    statusline #<% color.foreground %>
-    separator  #<% color.background %>     
-
-    # class            border bground text
-    focused_workspace  #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>
-    active_workspace   #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>
-    inactive_workspace #<% color.background %> #<% color.background %> #<% color.foreground %>
-    urgent_workspace   #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %>
-    binding_mode       #<% color.info-bg %> #<% color.info-bg %> #<% color.info-fg %>
-  }
-  position bottom
-  font pango:<% font.base %> <% font.pixelsize %>px, EmojiOne 16px
-  status_command <% system.binpath %>/i3status -c ~/.config/i3status/config
-}
-
-
-# Windows-specific stuff
-for_window [title="Screen Layout Editor"] floating enable

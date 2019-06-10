@@ -1,0 +1,45 @@
+[Toplevel top]
+size=24
+expand=true
+orientation=top
+
+[Object appmenuapplet]
+locked=true
+toplevel-id=top
+position=10
+object-type=applet
+applet-iid=AppmenuAppletFactory::AppmenuApplet
+panel-right-stick=false
+
+[Object notificationarea]
+locked=true
+toplevel-id=top
+position=1900
+object-type=applet
+applet-iid=NotificationAreaAppletFactory::NotificationArea
+panel-right-stick=false
+
+[Object indicatorappletcomplete]
+locked=true
+toplevel-id=top
+position=10
+object-type=applet
+applet-iid=IndicatorAppletCompleteFactory::IndicatorAppletComplete
+panel-right-stick=true
+
+[Object clockapplet]
+locked=true
+toplevel-id=top
+position=0
+object-type=applet
+applet-iid=ClockAppletFactory::ClockApplet
+panel-right-stick=true
+
+[Object workspaceswitcherapplet]
+locked=true
+toplevel-id=top
+position=0
+object-type=applet
+applet-iid=WnckletFactory::WorkspaceSwitcherApplet
+panel-right-stick=false
+
