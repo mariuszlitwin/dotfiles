@@ -16,6 +16,4 @@ source "${__dir}/.invocation.sh"
 [[ "${__distro}" != 'Ubuntu' ]] && exit 1
 
 # Bootstrap
-if [[ "$__mode" = 'bootstrap' ]]; then
-  sudo apt -y purge firefox
-fi
+sudo apt -y purge firefox
