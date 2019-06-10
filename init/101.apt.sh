@@ -21,7 +21,7 @@ if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then
 fi
 
 # Install apps
-sudo apt -y install git make build-essential wget curl stow unrar tmux \
+sudo apt -y install vim git make build-essential wget curl stow unrar tmux \
                     llvm xz-utils tk-dev gnupg2 \
                     tlp tlp-rdw mc \
                     python python3 python-dev python3-dev \
