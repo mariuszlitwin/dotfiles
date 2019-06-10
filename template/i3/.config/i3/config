@@ -20,10 +20,10 @@ bindsym $mod+Return exec mate-terminal
 bindsym $mod+w kill
 
 # start dmenu
-bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %> <% font.pixelsize %>px' -p '> '"
+bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %>:pixelsize=<% font.pixelsize %>' -p '> '"
 
 # lock screen
-bindsym $mod+l exec <% system.binpath %>/xsecurelock
+bindsym $mod+l exec xsecurelock
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
