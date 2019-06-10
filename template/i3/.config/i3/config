@@ -8,7 +8,7 @@
 set $mod Mod4
 
 # Font for window titles. 
-font pango:<% font.base %> <% font.pixelsize %>px
+font pango:<% font.base %> 16px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -20,7 +20,7 @@ bindsym $mod+Return exec mate-terminal
 bindsym $mod+w kill
 
 # start dmenu
-bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %>:pixelsize=<% font.pixelsize %>' -p '> '"
+bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %>:pixelsize=18' -p '> '"
 
 # lock screen
 bindsym $mod+l exec xsecurelock

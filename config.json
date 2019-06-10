@@ -55,8 +55,6 @@
     "base": "Ubuntu Regular",
     "monospace": "Ubuntu Mono Regular",
     "sans": "Ubuntu Regular",
-    "serif": "Georgia",
-    "size": 12,
-    "pixelsize": 18
+    "serif": "Georgia"
   }
 }
