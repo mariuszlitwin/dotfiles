@@ -17,9 +17,7 @@ which snap > /dev/null 2> /dev/null
 [[ $? -ne 0 ]] && exit 1
 
 # Initial login
-if [[ "${__mode}" = 'bootstrap' ]]; then 
-  sudo snap login
-fi
+sudo snap login
 
 # Update/Upgrade
 if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then 
@@ -28,9 +26,6 @@ fi
 
 # graphics
 snap install gimp inkscape
-
-# browsers
-snap install firefox
 
 # bitwarden
 snap install bitwarden
