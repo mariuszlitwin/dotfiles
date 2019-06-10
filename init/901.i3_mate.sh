@@ -43,11 +43,11 @@ if ! [ -x "$(command -v xsecurelock)" ]; then
   sudo make -C /home/${USER}/build/xsecurelock install
 fi
 
-sudo cp ${__dir}/../blob/usr/share/mate-panel/layouts/i3.* \
+sudo cp ${__dir}/../blob/usr/share/mate-panel/layouts/i3-tweak.* \
         /usr/share/mate-panel/layouts/
 
 # Configure MATE
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
 dconf write /org/mate/desktop/session/required-components-list "['windowmanager', 'panel']"
 dconf write /org/mate/desktop/background/show-desktop-icons "false"
-dconf write /org/mate/panel/general/default-layout "'i3'"
+dconf write /org/mate/panel/general/default-layout "'i3-tweak'"
