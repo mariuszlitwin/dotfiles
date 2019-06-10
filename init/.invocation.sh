@@ -12,4 +12,5 @@ __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __distro=`bash ${__dir}/.get_distro.sh`
+__desktop=$XDG_CURRENT_DESKTOP
 __mode="${1-default}"
