@@ -25,6 +25,9 @@ bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf 
 # lock screen
 bindsym $mod+l exec xsecurelock
 
+# printscreen
+bindsym Print exec scrot "/home/${USER}/Pictures/%Y%m%d_%H%M_scrot.png"
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
