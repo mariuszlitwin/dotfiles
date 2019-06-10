@@ -12,8 +12,10 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 
-gsettings set org.gnome.shell disable-user-extensions true
+gsettings get org.gnome.shell disable-user-extensions > /dev/null 2> /dev/null
+[[ $? -ne 0 ]] && exit 1
 
+gsettings set org.gnome.shell disable-user-extensions true
 
 gsettings get org.gnome.shell.extensions.dash-to-dock activate-single-window > /dev/null 2> /dev/null
 [[ $? -ne 0 ]] && exit 1
