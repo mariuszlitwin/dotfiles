@@ -24,6 +24,10 @@ fi
 # Install i3
 sudo apt -y install i3
 
+# Install MATE applet(s)
+sudo apt -y install mate-applet-appmenu
+sudo apt -y install mate-tweak
+
 # Install xsecurelock requirements
 sudo apt -y install apache2-utils autotools-dev binutils gcc libc6-dev \
                     libpam-dev libx11-dev libxcomposite-dev libxext-dev \
