@@ -2,7 +2,7 @@
 #
 # org.gnome.desktop.interface.sh - script for initilializing Gnome/GTK interfaces
 
-# Check whether schema for elementary Terminal app is available
+# Check whether schema for Gnome is available
 gsettings get org.gnome.desktop.interface clock-format > /dev/null 2> /dev/null
 [[ $? -ne 0 ]] && exit 1
 

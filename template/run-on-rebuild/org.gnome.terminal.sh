@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# io.elementary.terminal.sh - script for initilializing elementary terminal
+# org.gnome.terminal.sh - script for initilializing gnome terminal
 
-# Check whether schema for elementary Terminal app is available
+# Check whether schema for gnome Terminal app is available
 gsettings get org.gnome.Terminal.ProfilesList default > /dev/null 2> /dev/null
 [[ $? -ne 0 ]] && exit 1
 
