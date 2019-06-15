@@ -20,7 +20,7 @@ bindsym $mod+Return exec mate-terminal
 bindsym $mod+w kill
 
 # start app picker
-bindsym $mod+space exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %>:pixelsize=18' -p '> '"
+bindsym $mod+space exec <% system.binpath %>/i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
 
 # lock screen
 bindsym $mod+l exec mate-screensaver-command --lock || xsecurelock
