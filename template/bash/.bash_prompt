@@ -196,7 +196,9 @@ function __prompt {
 
     [[ "${blockscount}" -gt 1 ]] && blocksep='\n'
 
-    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \h $(_fs fg:green):$(_fr all)$(__dir_info $(__echo_len $(pwd) 60 ".../\W"))$(_fs fg:green)\\$ $(_fr all)";
+    let "__safe_len=$(tput cols)-50"
+
+    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \h $(_fs fg:green):$(_fr all)$(__dir_info $(__echo_len $(pwd) "$__safe_len" ".../\W"))$(_fs fg:green)\\$ $(_fr all)";
     export PS2="▌"
   fi;
 }
