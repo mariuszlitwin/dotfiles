@@ -17,7 +17,9 @@ which snap > /dev/null 2> /dev/null
 [[ $? -ne 0 ]] && exit 1
 
 # Initial login
-sudo snap login
+if snap whoami | grep "email: -" > /dev/null; then
+  sudo snap login
+fi
 
 # Update/Upgrade
 if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then 
