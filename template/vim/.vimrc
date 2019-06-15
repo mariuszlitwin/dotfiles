@@ -20,8 +20,8 @@ set nowb
 
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
