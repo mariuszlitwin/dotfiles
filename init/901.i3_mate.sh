@@ -29,9 +29,6 @@ sudo apt -y install i3
 sudo apt -y install mate-applet-appmenu
 sudo apt -y install mate-tweak
 
-# Remove xscreensaver
-sudo apt -y remove xscreensaver
-
 # Load panel layout to /usr/share/mate-panel/layouts
 sudo cp ${__dir}/../blob/usr/share/mate-panel/layouts/i3-tweak.* \
         /usr/share/mate-panel/layouts/
@@ -52,14 +49,14 @@ else
   cd /home/${USER}/build/ubuntu-mate-artwork && git pull origin
 fi
 
-cp /home/${USER}/build/ubuntu-mate-artwork/usr/share/themes/* \
-   /home/${USER}/.themes/
-cp /home/${USER}/build/ubuntu-mate-artwork/usr/share/icons/* \
-   /home/${USER}/.icons/
-cp /home/${USER}/build/ubuntu-mate-artwork/usr/share/gtksourceview-2.0/styles/* \
-   /home/${USER}/.local/share/gtksourceview-2.0/styles
-cp /home/${USER}/build/ubuntu-mate-artwork/usr/share/gtksourceview-3.0/styles/* \
-   /home/${USER}/.local/share/gtksourceview-3.0/styles
+cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/themes/* \
+      /home/${USER}/.themes/
+cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/icons/* \
+      /home/${USER}/.icons/
+cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/gtksourceview-2.0/styles/* \
+      /home/${USER}/.local/share/gtksourceview-2.0/styles
+cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/gtksourceview-3.0/styles/* \
+      /home/${USER}/.local/share/gtksourceview-3.0/styles
 
 # Configure MATE
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
@@ -68,6 +65,5 @@ dconf write /org/mate/desktop/background/show-desktop-icons "false"
 dconf write /org/mate/panel/general/default-layout "'i3-tweak'"
 
 dconf write /org/mate/marco/general/theme "'Ambiant-MATE'"
-dconf write /org/mate/desktop/interface/gtk-color-scheme "unset"
 dconf write /org/mate/desktop/interface/gtk-theme "'Ambiant-MATE'"
 dconf write /org/mate/desktop/interface/icon-theme "'Ambiant-MATE'"
