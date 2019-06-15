@@ -13,6 +13,11 @@ sub flatten {
     my $prefix = shift // '';
     my %flathash;
 
+    # add some dynamic entries to flathash
+
+    $flathash{'system.dotfilespath'} = "$::scriptdir";
+    $flathash{'system.utilspath'} = "$::scriptdir/build/run-on-demand";
+
     foreach (keys %{$hash}) {
         my @cprefix = grep(length, ($prefix, $_));
 
@@ -26,6 +31,7 @@ sub flatten {
             $flathash{join('.', @cprefix)} = $hash->{$_};
         }
     }
+
     return %flathash;
 }
 
@@ -97,11 +103,11 @@ sub runinit {
     system("bash", $path);
 }
 
-my $filepath   = $ARGV[0];
-my $scriptdir  = dirname($0);
-my $configpath = "$scriptdir/config.json";
-my $config     = Parse::CPAN::Meta->load_file($configpath);
-my %flatconfig = flatten($config);
+our $filepath   = $ARGV[0];
+our $scriptdir  = dirname($0);
+our $configpath = "$scriptdir/config.json";
+our $config     = Parse::CPAN::Meta->load_file($configpath);
+our %flatconfig = flatten($config);
 
 my $mode = shift @ARGV // '';
 
