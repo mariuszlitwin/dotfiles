@@ -13,7 +13,8 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 source "${__dir}/.invocation.sh"
 
-[[ "${__distro}" != 'elementary' && "${__distro}" != 'ubuntu' ]] && exit 1
+[[ "${__distro}" != 'elementary' && "${__distro}" != 'ubuntu' &&
+   "${__distro}" != 'debian' ]] && exit 1
 
 # Update/Upgrade
 if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then

@@ -19,7 +19,7 @@ toplevel-id='top'
 object-type='applet'
 
 [objects/appmenuapplet/prefs]
-bold-application-name=false
+bold-application-name=true
 
 [objects/clock]
 locked=true
@@ -49,8 +49,8 @@ toplevel-id='top'
 object-type='applet'
 panel-right-stick=false
 
-[objects/object-0/prefs]
-display-workspace-names=false
+[objects/workspaceswitcherapplet/prefs]
+display-workspace-names=true
 
 [toplevels/top]
 size=24
