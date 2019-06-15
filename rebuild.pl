@@ -57,7 +57,7 @@ sub dirwalk {
       if (-d $cpath) {
         print "[INFO] Going down to $cpath directory\n";
         $callback->($cpath);
-        dirwalk($cpath, $callback); 
+        dirwalk($cpath, $callback);
       } else {
         unless ($skiphidden and substr($_, 0, 1) eq '.') {
           print "[INFO] Processing $cpath file\n";
