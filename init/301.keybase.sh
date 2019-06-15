@@ -15,6 +15,8 @@ source "${__dir}/.invocation.sh"
 
 [[ "${__distro}" != 'elementary' && "${__distro}" != 'ubuntu' ]] && exit 1
 
+which keybase || return 1
+
 # Download Keybase
 curl https://prerelease.keybase.io/keybase_amd64.deb \
      -o /tmp/keybase_amd64.deb
