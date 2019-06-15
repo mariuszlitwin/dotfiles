@@ -103,10 +103,21 @@ function __exit_code {
 #
 # usage: __dir_info msg
 function __dir_info {
-  if [[ -w '.' ]]; then 
+  if [[ -w '.' ]]; then
     _fr all; printf ' '; printf $1; printf ' ';
   else
     _fs fg:red; printf ' '; printf $1; printf ' '; _fr all;
+  fi;
+}
+
+# Print MSG1 if it's shorter than X characters or MSG 2 otherwise.
+#
+# usage __echo_len MSG1 X MSG2
+function __echo_len {
+  if [[ $(expr length $1) -lt $2 ]]; then
+    echo $1;
+  else
+    echo $3;
   fi;
 }
 
@@ -153,8 +164,12 @@ function __devjail_info {
 
   # init Python virtualenv
   [ $VIRTUAL_ENV ] && jails+=("py:$(basename $VIRTUAL_ENV) ")
+  # check if inside of docker container
   cat /proc/self/cgroup | grep "0::/system.slice/containerd.service" > /dev/null 2>&1 && \
       jails+=("dkr:$(hostname) ")
+  # check if inside debian chroot
+  [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ] && \
+      jails+=("chr:$(cat /etc/debian_chroot) ")
 
   [[ ! -z $jails ]] || return 0 # no jails currently used
 
@@ -181,8 +196,8 @@ function __prompt {
 
     [[ "${blockscount}" -gt 1 ]] && blocksep='\n'
 
-    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \h $(_fs fg:green):$(_fr all)$(__dir_info \\w)$(_fs fg:green)\\$ $(_fr all)";
-    export PS2="| "
+    export PS1="${blocks}${blocksep}$(__exit_code $EXIT) \h $(_fs fg:green):$(_fr all)$(__dir_info $(__echo_len $(pwd) 60 ".../\W"))$(_fs fg:green)\\$ $(_fr all)";
+    export PS2="▌"
   fi;
 }
 
