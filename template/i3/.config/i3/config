@@ -19,11 +19,11 @@ bindsym $mod+Return exec mate-terminal
 # kill focused window
 bindsym $mod+w kill
 
-# start dmenu
-bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %>:pixelsize=18' -p '> '"
+# start app picker
+bindsym $mod+space exec <% system.binpath %>/i3-dmenu-desktop --dmenu="dmenu -i -nf '#<% color.foreground %>' -nb '#<% color.background %>' -sb '#<% color.primary-bg %>' -sf '#<% color.primary-fg %>' -fn '<% font.base %>:pixelsize=18' -p '> '"
 
 # lock screen
-bindsym $mod+l exec xsecurelock
+bindsym $mod+l exec mate-screensaver-command --lock || xsecurelock
 
 # printscreen
 bindsym Print exec scrot "/home/${USER}/Pictures/%Y%m%d_%H%M_scrot.png"
@@ -50,15 +50,15 @@ bindsym $mod+minus split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
-bindsym $mod+Shift+e layout toggle split
+bindsym $mod+Shift+a layout stacking
+bindsym $mod+Shift+s layout tabbed
+bindsym $mod+Shift+d layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Tab focus mode_toggle
 
 # switch to workspace
 bindsym Mod1+1 workspace 1

@@ -28,27 +28,14 @@ sudo apt -y install i3
 sudo apt -y install mate-applet-appmenu
 sudo apt -y install mate-tweak
 
-# Install xsecurelock requirements
-sudo apt -y install apache2-utils autotools-dev binutils gcc libc6-dev \
-                    libpam-dev libx11-dev libxcomposite-dev libxext-dev \
-                    libxfixes-dev libxft-dev libxmuu-dev libxrandr-dev \
-                    libxss-dev make mplayer mpv pamtester pkg-config \
-                    x11proto-core-dev xscreensaver autoconf
+# Remove xscreensaver
+sudo apt -y remove xscreensaver
 
-# Install xsecurelock
-if ! [ -x "$(command -v xsecurelock)" ]; then
-  rm -rf /home/${USER}/build/xsecurelock
-  git clone --depth 1 \
-            https://github.com/google/xsecurelock.git \
-            /home/${USER}/build/xsecurelock
-  cd /home/${USER}/build/xsecurelock/ && sh autogen.sh
-  /home/${USER}/build/xsecurelock/configure --with-pam-service-name=common-auth
-  make -C /home/${USER}/build/xsecurelock
-  sudo make -C /home/${USER}/build/xsecurelock install
-fi
-
+# Load panel layout to /usr/share/mate-panel/layouts
 sudo cp ${__dir}/../blob/usr/share/mate-panel/layouts/i3-tweak.* \
         /usr/share/mate-panel/layouts/
+mate-panel --layout i3-tweak
+mate-panel --reset --reload
 
 # Configure MATE
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
