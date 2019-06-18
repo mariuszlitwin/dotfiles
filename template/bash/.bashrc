@@ -65,3 +65,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Machine-specific settings
+# You may want to put machine-specific bash settings into a separate file
+# like ~/.bash_snowflake, instead of adding them here directly.
+if [ -f ~/.bash_snowflake ]; then
+  . ~/.bash_snowflake
+fi
