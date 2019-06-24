@@ -14,6 +14,8 @@ alias free="free -mt"
 alias ps="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
+alias cls="clear"
+
 alias gpg="gpg2"
 
 alias myip="curl http://ipecho.net/plain; echo"
