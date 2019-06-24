@@ -29,22 +29,21 @@ bindsym $mod+l exec mate-screensaver-command --lock || xsecurelock
 bindsym Print exec scrot "${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
 
 # focus on the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # Move window left, down, right, or up.
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientations
 bindsym $mod+backslash split h
-
 # split in vertical orientation
-bindsym $mod+minus split v
+bindsym $mod+minus     split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -72,7 +71,7 @@ bindsym Mod1+8 workspace 8
 bindsym Mod1+9 workspace 9
 bindsym Mod1+0 workspace 10
 
-bindsym Mod1+Tab workspace next
+bindsym Mod1+Tab       workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
 # move workspaces between outputs
@@ -101,10 +100,10 @@ bindsym $mod+Shift+r restart
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left  resize shrink width  10 px or 10 ppt
+  bindsym Down  resize grow   height 10 px or 10 ppt
+  bindsym Up    resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow   width  10 px or 10 ppt
 
   # back to normal: Enter or Escape
   bindsym Escape mode "default"
