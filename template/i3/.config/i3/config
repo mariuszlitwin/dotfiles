@@ -28,7 +28,7 @@ bindsym $mod+l exec mate-screensaver-command --lock || xsecurelock
 # printscreen
 bindsym Print exec scrot "${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
 
-# alternatively, you can use the cursor keys:
+# focus on the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -74,6 +74,12 @@ bindsym Mod1+0 workspace 10
 
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
+
+# move workspaces between outputs
+bindsym Mod1+Shift+Left  move workspace to output left
+bindsym Mod1+Shift+Down  move workspace to output down
+bindsym Mod1+Shift+Up    move workspace to output up
+bindsym Mod1+Shift+Right move workspace to output right
 
 # move focused container to workspace
 bindsym $mod+1 move container to workspace 1
