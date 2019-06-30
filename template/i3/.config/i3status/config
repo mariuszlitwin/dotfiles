@@ -12,7 +12,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-  interval 60
+  interval = 60
   output_format = "i3bar"
 
   colors = true
@@ -33,14 +33,14 @@ path_exists empty {
 }
 
 tztime ca {
-  format = "🦅  %Y-%m-%d %H:%m "
+  format = "🦅  %Y-%m-%d %H:%M "
   timezone = "America/Los_Angeles"
 }
 tztime ch {
-  format = "🐮  %Y-%m-%d %H:%m"
+  format = "🐮  %Y-%m-%d %H:%M"
   timezone = "Europe/Zurich"
 }
 tztime au {
-  format = "🐨  %Y-%m-%d %H:%m"
+  format = "🐨  %Y-%m-%d %H:%M"
   timezone = "Australia/Sydney"
 }
