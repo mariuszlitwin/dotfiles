@@ -39,25 +39,26 @@ mate-panel --reset --replace
 # Download Ubuntu MATE themes
 mkdir -pv /home/${USER}/.themes
 mkdir -pv /home/${USER}/.icons
+mkdir -pv /home/${USER}/.local/share/fonts
 mkdir -pv /home/${USER}/.local/share/gtksourceview-2.0/styles
 mkdir -pv /home/${USER}/.local/share/gtksourceview-3.0/styles
 
-if [ ! -d "/home/${USER}/build/ubuntu-mate-artwork" ]; then
+if [ ! -d "${HOME}/build/ubuntu-mate-artwork" ]; then
   git clone --depth 1 \
             https://github.com/ubuntu-mate/ubuntu-mate-artwork.git \
-            /home/${USER}/build/ubuntu-mate-artwork
+            ${HOME}/build/ubuntu-mate-artwork
 else
-  cd /home/${USER}/build/ubuntu-mate-artwork && git pull origin
+  cd ${HOME}/build/ubuntu-mate-artwork && git pull origin
 fi
 
-cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/themes/* \
-      /home/${USER}/.themes/
-cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/icons/* \
-      /home/${USER}/.icons/
-cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/gtksourceview-2.0/styles/* \
-      /home/${USER}/.local/share/gtksourceview-2.0/styles
-cp -r /home/${USER}/build/ubuntu-mate-artwork/usr/share/gtksourceview-3.0/styles/* \
-      /home/${USER}/.local/share/gtksourceview-3.0/styles
+cp -r ${HOME}/build/ubuntu-mate-artwork/usr/share/themes/* \
+      ${HOME}/.themes/
+cp -r ${HOME}/build/ubuntu-mate-artwork/usr/share/icons/* \
+      ${HOME}/.icons/
+cp -r ${HOME}/build/ubuntu-mate-artwork/usr/share/gtksourceview-2.0/styles/* \
+      ${HOME}/.local/share/gtksourceview-2.0/styles
+cp -r ${HOME}/build/ubuntu-mate-artwork/usr/share/gtksourceview-3.0/styles/* \
+      ${HOME}/.local/share/gtksourceview-3.0/styles
 
 # Configure MATE
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
