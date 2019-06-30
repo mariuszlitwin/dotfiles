@@ -30,6 +30,9 @@ sudo apt -y install mate-applet-appmenu
 sudo apt -y install mate-indicator-applet
 sudo apt -y install mate-tweak
 
+# Install emoji font
+sudo apt -y install fonts-noto-color-emoji
+
 # Load panel layout to /usr/share/mate-panel/layouts
 sudo cp ${__dir}/../blob/usr/share/mate-panel/layouts/i3-tweak.* \
         /usr/share/mate-panel/layouts/
