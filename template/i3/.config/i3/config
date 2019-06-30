@@ -120,3 +120,26 @@ client.unfocused        #<% color.background %> #<% color.background %> #<% colo
 client.urgent           #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %> #<% color.danger-bg %> #<% color.danger-bg %>
 client.placeholder      #<% color.background %> #<% color.background %> #<% color.lforeground %> #<% color.background %> #<% color.background %>
 client.background       #<% color.background %>
+
+bar {
+  colors {
+    background         #<% color.background %>
+    statusline         #<% color.foreground %>
+    separator          #<% color.primary-bg %>
+
+    # class            border bground text
+    focused_workspace  #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>
+    active_workspace   #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>
+    inactive_workspace #<% color.background %> #<% color.background %> #<% color.foreground %>
+    urgent_workspace   #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %>
+    binding_mode       #<% color.info-bg %> #<% color.info-bg %> #<% color.info-fg %>
+  }
+
+  separator_symbol "〱"
+
+  position bottom
+  tray_output None
+  status_command <% system.binpath %>/i3status -c "${HOME}/.config/i3status/config"
+
+  font pango:<% font.base %> 14px
+}

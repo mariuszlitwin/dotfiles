@@ -27,6 +27,7 @@ sudo apt -y install i3
 
 # Install MATE applet(s)
 sudo apt -y install mate-applet-appmenu
+sudo apt -y install mate-indicator-applet
 sudo apt -y install mate-tweak
 
 # Load panel layout to /usr/share/mate-panel/layouts

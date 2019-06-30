@@ -1,37 +1,15 @@
 [general]
-default-layout='eleven'
-object-id-list=['appmenuapplet', 'notification-area', 'indicatorappletcomplete', 'clock', 'workspaceswitcherapplet']
+default-layout='i3-tweak'
+object-id-list=['appmenuapplet', 'notificationarea', 'indicatorappletcomplete']
 toplevel-id-list=['top']
-
-[objects/notification-area]
-locked=true
-applet-iid='NotificationAreaAppletFactory::NotificationArea'
-position=1900
-toplevel-id='top'
-object-type='applet'
-panel-right-stick=false
 
 [objects/appmenuapplet]
 locked=true
 applet-iid='AppmenuAppletFactory::AppmenuApplet'
-position=10
-toplevel-id='top'
-object-type='applet'
-
-[objects/appmenuapplet/prefs]
-bold-application-name=true
-
-[objects/clock]
-locked=true
-applet-iid='ClockAppletFactory::ClockApplet'
 position=0
 toplevel-id='top'
 object-type='applet'
-panel-right-stick=true
-
-[objects/clock/prefs]
-format='24-hour'
-custom-format=''
+panel-right-stick=false
 
 [objects/indicatorappletcomplete]
 locked=true
@@ -41,16 +19,16 @@ toplevel-id='top'
 object-type='applet'
 panel-right-stick=true
 
-[objects/workspaceswitcherapplet]
+[objects/notificationarea]
 locked=true
-applet-iid='WnckletFactory::WorkspaceSwitcherApplet'
-position=0
+applet-iid='NotificationAreaAppletFactory::NotificationArea'
+position=1900
 toplevel-id='top'
 object-type='applet'
 panel-right-stick=false
 
-[objects/workspaceswitcherapplet/prefs]
-display-workspace-names=true
-
 [toplevels/top]
+orientation='top'
+screen=0
+expand=true
 size=24
