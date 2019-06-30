@@ -1,5 +1,5 @@
 # i3status configuration file.
-# 
+#
 # .config/i3status/config : DO NOT EDIT -- this file has been generated automatically
 #
 # Ref.: dotfiles/template/i3/.config/i3status/config
@@ -31,11 +31,11 @@ path_exists empty {
 }
 
 tztime ca {
-  format = "🍔  %Y-%m-%d %H:%m "
+  format = "🦅  %Y-%m-%d %H:%m "
   timezone = "America/Los_Angeles"
 }
 tztime ch {
-  format = "🧀  %Y-%m-%d %H:%m"
+  format = "🐮  %Y-%m-%d %H:%m"
   timezone = "Europe/Zurich"
 }
 tztime au {
