@@ -1,0 +1,44 @@
+# i3status configuration file.
+# 
+# .config/i3status/config : DO NOT EDIT -- this file has been generated automatically
+#
+# Ref.: dotfiles/template/i3/.config/i3status/config
+#
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+  output_format = "i3bar"
+  colors = true
+  color_good = "#<% color.success-bg %>"
+  color_degraded = "#<% color.warning-bg %>"
+  color_bad = "#<% color.danger-bg %>"
+}
+
+order += "path_exists empty"
+order += "tztime au"
+order += "tztime ch"
+order += "tztime ca"
+
+path_exists empty {
+  path = "${HOME}/.bashrc"
+  format = " "
+  format_down = " "
+}
+
+tztime ca {
+  format = "🍔  %Y-%m-%d %H:%m "
+  timezone = "America/Los_Angeles"
+}
+tztime ch {
+  format = "🧀  %Y-%m-%d %H:%m"
+  timezone = "Europe/Zurich"
+}
+tztime au {
+  format = "🦘  %Y-%m-%d %H:%m"
+  timezone = "Australia/Sydney"
+}
