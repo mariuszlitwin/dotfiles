@@ -39,6 +39,6 @@ tztime ch {
   timezone = "Europe/Zurich"
 }
 tztime au {
-  format = "🦘  %Y-%m-%d %H:%m"
+  format = "🐨  %Y-%m-%d %H:%m"
   timezone = "Australia/Sydney"
 }
