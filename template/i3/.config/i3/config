@@ -125,7 +125,7 @@ bar {
   colors {
     background         #<% color.background %>
     statusline         #<% color.foreground %>
-    separator          #<% color.primary-bg %>
+    separator          #<% color.background %>
 
     # class            border bground text
     focused_workspace  #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>
@@ -134,8 +134,6 @@ bar {
     urgent_workspace   #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %>
     binding_mode       #<% color.info-bg %> #<% color.info-bg %> #<% color.info-fg %>
   }
-
-  separator_symbol "〱"
 
   position bottom
   tray_output None
