@@ -39,7 +39,7 @@ mate-panel --reset --replace
 # Download Ubuntu MATE themes
 mkdir -pv /home/${USER}/.themes
 mkdir -pv /home/${USER}/.icons
-mkdir -pv /home/${USER}/.local/share/fonts
+mkdir -pv /home/${USER}/.fonts
 mkdir -pv /home/${USER}/.local/share/gtksourceview-2.0/styles
 mkdir -pv /home/${USER}/.local/share/gtksourceview-3.0/styles
 
@@ -50,6 +50,17 @@ if [ ! -d "${HOME}/build/ubuntu-mate-artwork" ]; then
 else
   cd ${HOME}/build/ubuntu-mate-artwork && git pull origin
 fi
+
+if [ -f "${HOME}/build/ubuntu-font.zip" ]; then
+  rm "${HOME}/build/ubuntu-font.zip"
+fi
+curl https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip \
+     -o "${HOME}/build/ubuntu-font.zip"
+
+unzip -oj "${HOME}/build/ubuntu-font.zip" *.ttf \
+      -d ${HOME}/.fonts
+
+fc-cache -f -v
 
 cp -r ${HOME}/build/ubuntu-mate-artwork/usr/share/themes/* \
       ${HOME}/.themes/
@@ -69,3 +80,9 @@ dconf write /org/mate/panel/general/default-layout "'i3-tweak'"
 dconf write /org/mate/marco/general/theme "'Ambiant-MATE'"
 dconf write /org/mate/desktop/interface/gtk-theme "'Ambiant-MATE'"
 dconf write /org/mate/desktop/interface/icon-theme "'Ambiant-MATE'"
+
+dconf write /org/mate/desktop/interface/font-name "'Ubuntu 11'"
+dconf write /org/mate/desktop/interface/document-font-name "'Ubuntu 11'"
+dconf write /org/mate/caja/desktop/font "'Ubuntu 11'"
+dconf write /org/mate/marco/general/titlebar-font "'Ubuntu Medium 11'"
+dconf write /org/mate/desktop/interface/monospace-font-name "'Ubuntu Mono 13'"
