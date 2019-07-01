@@ -28,7 +28,7 @@ order += "tztime ch"
 order += "tztime ca"
 
 cpu_usage {
-  format = "〱 🧮  %usage"
+  format = "〱 ⚙️  %usage"
 }
 
 load {
