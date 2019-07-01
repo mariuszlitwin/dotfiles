@@ -139,5 +139,8 @@ bar {
   tray_output None
   status_command <% system.binpath %>/i3status -c "${HOME}/.config/i3status/config"
 
+  wheel_up_cmd nop
+  wheel_down_cmd nop
+
   font pango:<% font.base %> 14px
 }
