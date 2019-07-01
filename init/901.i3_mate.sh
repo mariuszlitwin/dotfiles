@@ -40,11 +40,11 @@ mate-panel --layout i3-tweak
 mate-panel --reset --replace
 
 # Download Ubuntu MATE themes
-mkdir -pv /home/${USER}/.themes
-mkdir -pv /home/${USER}/.icons
-mkdir -pv /home/${USER}/.fonts
-mkdir -pv /home/${USER}/.local/share/gtksourceview-2.0/styles
-mkdir -pv /home/${USER}/.local/share/gtksourceview-3.0/styles
+mkdir -pv ${HOME}/.themes
+mkdir -pv ${HOME}/.icons
+mkdir -pv ${HOME}/.fonts
+mkdir -pv ${HOME}/.local/share/gtksourceview-2.0/styles
+mkdir -pv ${HOME}/.local/share/gtksourceview-3.0/styles
 
 if [ ! -d "${HOME}/build/ubuntu-mate-artwork" ]; then
   git clone --depth 1 \
