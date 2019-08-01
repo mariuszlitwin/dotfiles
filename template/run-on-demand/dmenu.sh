@@ -9,9 +9,10 @@
 prompt=$1; shift
 in=$(cat)
 
-echo "$in" | <% system.binpath %>/dmenu -i -nf '#<% color.foreground %>' \
-                                           -nb '#<% color.background %>' \
-                                           -sb '#<% color.primary-bg %>' \
-                                           -sf '#<% color.primary-fg %>' \
-                                           -fn '<% font.base %>:pixelsize=18' \
-                                           -p "$prompt " $@
+echo "$in" | <% system.binpath %>/dmenu -i -b -l 12 \
+                                        -nf '#<% color.foreground %>' \
+                                        -nb '#<% color.background %>' \
+                                        -sb '#<% color.primary-bg %>' \
+                                        -sf '#<% color.primary-fg %>' \
+                                        -fn '<% font.base %>:pixelsize=18' \
+                                        -p "$prompt " $@
