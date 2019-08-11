@@ -192,7 +192,7 @@ function __devjail_info {
   # init Python virtualenv
   [ $VIRTUAL_ENV ] && jails+=("py:$(basename $VIRTUAL_ENV) ")
   # check if inside of docker container
-  cat /proc/self/cgroup | grep "0::/system.slice/containerd.service" > /dev/null 2>&1 && \
+  cat /proc/self/cgroup | grep '0::/system.slice/containerd.service' > /dev/null 2>&1 && \
       jails+=("dkr:$(hostname) ")
   # check if inside debian chroot
   [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ] && \
@@ -203,7 +203,7 @@ function __devjail_info {
   for (( i=0; i<${#jails[@]}; i++ )); do
     if [[ $(($i % 2)) -eq 1 ]]; then _fs bg:green fg:black;
     else _fs bg:cyan fg:black; fi
-    echo -n " "; echo -n "${jails[$i]}"; _fr all;
+    echo -n ' '; echo -n "${jails[$i]}"; _fr all;
   done
   return 1
 }
@@ -212,6 +212,8 @@ function __devjail_info {
 #
 # usage: __host_info
 function __host_info {
+  _fs fg:black bg:green
+  echo -n " <['_']> "
   _fs fg:black bg:white
   echo -n " \h [\j] "
   _fr all
@@ -229,7 +231,7 @@ function __pwd_info {
 function __prompt {
   local EXIT="$?";
 
-  if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ] && [ -n "$PS1" ]; then
+  if [ "$TERM" != 'dumb' -o -n "$INSIDE_EMACS" ] && [ -n "$PS1" ]; then
     local blocks=''
     local blockscount=0
 
