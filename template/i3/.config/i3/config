@@ -19,12 +19,6 @@ bindsym $mod+w kill
 # start app picker
 bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
 
-# lock screen
-bindsym $mod+l exec mate-screensaver-command --lock || xsecurelock
-
-# printscreen
-bindsym Print exec scrot "${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
-
 # focus on the cursor keys:
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
@@ -94,12 +88,17 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+# printscreen
+bindsym Print exec "bash <% system.utilspath %>/runner.sh screenshot"
+# lock screen
+bindsym $mod+l exec "bash <% system.utilspath %>/runner.sh lockscreen"
+
 # quickstart menu
 mode "quickstart" {
-  bindsym $mod+Return exec mate-terminal; mode "default"
-  bindsym Return      exec mate-terminal; mode "default"
-  bindsym $mod+z exec firefox; mode "default"
-  bindsym z      exec firefox; mode "default"
+  bindsym $mod+Return exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  bindsym Return      exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  bindsym $mod+z      exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
+  bindsym z           exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
 
   # back to normal
   bindsym Escape mode "default"

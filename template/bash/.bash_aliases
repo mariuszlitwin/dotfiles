@@ -25,11 +25,16 @@ alias xclip="xclip -selection clipboard"
 alias stow="stow -d ~/dotfiles/build -t ~/"
 alias dotfiles="perl ~/dotfiles/rebuild.pl"
 
-function __bw_macro() {
-    if [[ $1 == "unlock" ]]; then
-        export BW_SESSION=`bw unlock --raw`
-    else
-        bw "$@"
-    fi
+alias lockscreen="mate-screensaver-command --lock"
+alias screenshot="scrot ${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
+alias terminal="mate-terminal"
+alias browser="firefox"
+
+__bw_macro() {
+  if test "$1" = 'unlock'; then
+    export BW_SESSION=`bw unlock --raw`
+  else
+    bw "$@"
+  fi
 }
 alias pw=__bw_macro
