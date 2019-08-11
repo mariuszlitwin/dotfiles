@@ -13,9 +13,6 @@ font pango:<% font.base %> 16px
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec mate-terminal
-
 # kill focused window
 bindsym $mod+w kill
 
@@ -97,6 +94,19 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+# quickstart menu
+mode "quickstart" {
+  bindsym $mod+Return exec mate-terminal; mode "default"
+  bindsym Return      exec mate-terminal; mode "default"
+  bindsym $mod+z exec firefox; mode "default"
+  bindsym z      exec firefox; mode "default"
+
+  # back to normal
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Return mode "quickstart"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # same bindings, but for the arrow keys
@@ -105,7 +115,7 @@ mode "resize" {
   bindsym Up    resize shrink height 10 px or 10 ppt
   bindsym Right resize grow   width  10 px or 10 ppt
 
-  # back to normal: Enter or Escape
+  # back to normal
   bindsym Escape mode "default"
 }
 
