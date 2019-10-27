@@ -5,120 +5,161 @@
 # Ref.: dotfiles/template/i3/.config/i3/config
 
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-set $mod Mod4
+set $a Mod1
+set $m Mod4
+set $s Shift
 
 # Font for window titles. 
 font pango:<% font.base %> 16px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier $m
 
 # kill focused window
-bindsym $mod+w kill
+# scbgn:Super+w:kill window:scfin
+bindsym $m+w kill
 
 # start app picker
-bindsym $mod+d exec <% system.binpath %>/i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
+# scbgn:Super+d:start dmenu:end
+bindsym $m+d exec i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
 
 # focus on the cursor keys:
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
-bindsym $mod+Right focus right
+# scbgn:Super+Left:focus window on left:scfin
+bindsym $m+Left  focus left
+# scbgn:Super+Down:focus window down:scfin
+bindsym $m+Down  focus down
+# scbgn:Super+Up:focus window up:scfin
+bindsym $m+Up    focus up
+# scbgn:Super+Right:focus window on right:scfin
+bindsym $m+Right focus right
 
 # Move window left, down, right, or up.
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
+# scbgn:Super+Shift+Left:move window left:scfin
+bindsym $m+$s+Left  move left
+# scbgn:Super+Shift+Down:move window down:scfin
+bindsym $m+$s+Down  move down
+# scbgn:Super+Shift+Up:move window up:scfin
+bindsym $m+$s+Up    move up
+# scbgn:Super+Shift+Right:move window right:scfin
+bindsym $m+$s+Right move right
 
 # split in horizontal orientations
-bindsym $mod+backslash split h
+# scbgn:Super+\:change split to horizontal:scfin
+bindsym $m+backslash split h
 # split in vertical orientation
-bindsym $mod+minus     split v
+# scbgn:Super+-:change split to vertical:scfin
+bindsym $m+minus     split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# scbgn:Super+f:toggle fullscreen:scfin
+bindsym $m+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+a layout stacking
-bindsym $mod+Shift+s layout tabbed
-bindsym $mod+Shift+d layout toggle split
+# scbgn:Super+Shift+a:set layout stacking:scfin
+bindsym $m+$s+a layout stacking
+# scbgn:Super+Shift+s:set layout tabbed:scfin
+bindsym $m+$s+s layout tabbed
+# scbgn:Super+Shift+d:set layout split:scfin
+bindsym $m+$s+d layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+f floating toggle
+# scbgn:Super+Shift+f:set layout floating:scfin
+bindsym $m+$s+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Tab focus mode_toggle
+# scbgn:Super+Tab:change focus between floating and regular:scfin
+bindsym $m+Tab focus mode_toggle
 
 # switch to workspace
-bindsym Mod1+1 workspace 1
-bindsym Mod1+2 workspace 2
-bindsym Mod1+3 workspace 3
-bindsym Mod1+4 workspace 4
-bindsym Mod1+5 workspace 5
-bindsym Mod1+6 workspace 6
-bindsym Mod1+7 workspace 7
-bindsym Mod1+8 workspace 8
-bindsym Mod1+9 workspace 9
-bindsym Mod1+0 workspace 10
+# scbgn:Alt+[0-9]:change workspace to N:scfin
+bindsym $a+1 workspace 1
+bindsym $a+2 workspace 2
+bindsym $a+3 workspace 3
+bindsym $a+4 workspace 4
+bindsym $a+5 workspace 5
+bindsym $a+6 workspace 6
+bindsym $a+7 workspace 7
+bindsym $a+8 workspace 8
+bindsym $a+9 workspace 9
+bindsym $a+0 workspace 10
 
-bindsym Mod1+Tab       workspace next
-bindsym Mod1+Shift+Tab workspace prev
+# scbgn:Alt+Tab:next workspace:scfin
+bindsym $a+Tab workspace next
+# scbgn:Alt+Shift+Tab:previous workspace:scfin
+bindsym $a+$s+Tab workspace prev
 
 # move workspaces between outputs
-bindsym Mod1+Shift+Left  move workspace to output left
-bindsym Mod1+Shift+Down  move workspace to output down
-bindsym Mod1+Shift+Up    move workspace to output up
-bindsym Mod1+Shift+Right move workspace to output right
+# scbgn:Alt+Shift+Left:move workspace to monitor on left:scfin
+bindsym $a+$s+Left  move workspace to output left
+# scbgn:Alt+Shift+Down:move workspace to monitor on the bottom:scfin
+bindsym $a+$s+Down  move workspace to output down
+# scbgn:Alt+Shift+Up:move workspace to monitor on the top:scfin
+bindsym $a+$s+Up    move workspace to output up
+# scbgn:Alt+Shift+Right:move workspace to monitor on right:scfin
+bindsym $a+$s+Right move workspace to output right
 
-# move focused container to workspace
-bindsym $mod+1 move container to workspace 1
-bindsym $mod+2 move container to workspace 2
-bindsym $mod+3 move container to workspace 3
-bindsym $mod+4 move container to workspace 4
-bindsym $mod+5 move container to workspace 5
-bindsym $mod+6 move container to workspace 6
-bindsym $mod+7 move container to workspace 7
-bindsym $mod+8 move container to workspace 8
-bindsym $mod+9 move container to workspace 9
-bindsym $mod+0 move container to workspace 10
+# move focused window to workspace
+# scbgn:Super+[0-9]:move window to workspace N:scfin
+bindsym $m+1 move container to workspace 1
+bindsym $m+2 move container to workspace 2
+bindsym $m+3 move container to workspace 3
+bindsym $m+4 move container to workspace 4
+bindsym $m+5 move container to workspace 5
+bindsym $m+6 move container to workspace 6
+bindsym $m+7 move container to workspace 7
+bindsym $m+8 move container to workspace 8
+bindsym $m+9 move container to workspace 9
+bindsym $m+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# scbgn:Super+Shift+c:reload config:scfin
+bindsym $m+$s+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# # scbgn:Super+Shift+c:restart:scfin
+bindsym $m+$s+r restart
 
 # printscreen
+# scbgn:Printscreen:printscreen:scfin
 bindsym Print exec "bash <% system.utilspath %>/runner.sh screenshot"
 # lock screen
-bindsym $mod+l exec "bash <% system.utilspath %>/runner.sh lockscreen"
+# scbgn:Super+l:lock screen:scfin
+bindsym $m+l exec "bash <% system.utilspath %>/runner.sh lockscreen"
 
+# scbgn::Section/Quickstart:scfin
+# scbgn:Super+Return:quickstart mode:scfin
+bindsym $m+Return mode "quickstart"
 # quickstart menu
 mode "quickstart" {
-  bindsym $mod+Return exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
-  bindsym Return      exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
-  bindsym $mod+z      exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
-  bindsym z           exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
+  # scbgn:Super+Return Super+Return:start terminal:scfin
+  bindsym $m+Return exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  # scbgn:Super+Return Return:start terminal:scfin
+  bindsym Return exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  # scbgn:Super+Return Super+z:start browser:scfin
+  bindsym $m+z exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
+  # scbgn:Super+Return z:start browser:scfin
+  bindsym z exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
 
   # back to normal
   bindsym Escape mode "default"
 }
 
-bindsym $mod+Return mode "quickstart"
-
+# scbgn::Section/Resize:scfin
+# scbgn:Super+r:resize mode:scfin
+bindsym $m+r mode "resize"
 # resize window (you can also use the mouse for that)
 mode "resize" {
-  # same bindings, but for the arrow keys
+  # scbgn:Super+r Left:shrink window horizontally:scfin
   bindsym Left  resize shrink width  10 px or 10 ppt
+  # scbgn:Super+r Down:grow window vertically:scfin
   bindsym Down  resize grow   height 10 px or 10 ppt
+  # scbgn:Super+r Up:shrink window vertically:scfin
   bindsym Up    resize shrink height 10 px or 10 ppt
+  # scbgn:Super+r Right:grow window horizontally:scfin
   bindsym Right resize grow   width  10 px or 10 ppt
 
   # back to normal
   bindsym Escape mode "default"
 }
-
-bindsym $mod+r mode "resize"
 
 # Colors
 # URL: https://thomashunter.name/i3-configurator
@@ -146,7 +187,7 @@ bar {
 
   position bottom
   tray_output None
-  status_command <% system.binpath %>/i3status -c "${HOME}/.config/i3status/config"
+  status_command i3status
 
   wheel_up_cmd nop
   wheel_down_cmd nop
