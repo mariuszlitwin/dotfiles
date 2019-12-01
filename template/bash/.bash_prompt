@@ -212,8 +212,10 @@ function __devjail_info {
 #
 # usage: __host_info
 function __host_info {
+  _fs fg:green
+  echo    "  , ,  "
   _fs fg:black bg:green
-  echo -n " <['_']> "
+  echo -n " [+_-] "
   _fs fg:black bg:white
   echo -n " \h [\j] "
   _fr all
