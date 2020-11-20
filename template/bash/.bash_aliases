@@ -28,7 +28,7 @@ alias dotfiles="perl ~/dotfiles/rebuild.pl"
 alias lockscreen="mate-screensaver-command --lock"
 alias screenshot="scrot ${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
 alias terminal="mate-terminal"
-alias browser="firefox"
+alias browser="google-chrome"
 
 __bw_macro() {
   if test "$1" = 'unlock'; then
