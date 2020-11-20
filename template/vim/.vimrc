@@ -30,9 +30,9 @@ set ai
 set si
 
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=100
 endif
 
-set directory=~/.vim/swaps      " centralized swaps
-set backupdir=~/.vim/backups    " centralized backups
+set directory=~/.vim/swap       " centralized swaps
+set backupdir=~/.vim/backup     " centralized backups
 set undodir=~/.vim/undo         " centralized undo history
