@@ -15,13 +15,16 @@ font pango:<% font.base %> 16px
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $m
 
+exec "bash <% system.utilspath %>/runner.sh terminal"
+for_window [class="Mate-terminal"] floating enable; move to scratchpad; scratchpad show; resize set 1280 720
+
 # kill focused window
 # scbgn:Super+w:kill window:scfin
 bindsym $m+w kill
 
 # start app picker
-# scbgn:Super+d:start dmenu:end
-bindsym $m+d exec i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
+# scbgn:Super+space:start dmenu:end
+bindsym $m+space exec i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
 
 # focus on the cursor keys:
 # scbgn:Super+Left:focus window on left:scfin
@@ -63,8 +66,8 @@ bindsym $m+$s+s layout tabbed
 bindsym $m+$s+d layout toggle split
 
 # toggle tiling / floating
-# scbgn:Super+Shift+f:set layout floating:scfin
-bindsym $m+$s+f floating toggle
+# scbgn:Super+d:set layout floating:scfin
+bindsym $m+d floating toggle
 
 # change focus between tiling / floating windows
 # scbgn:Super+Tab:change focus between floating and regular:scfin
@@ -115,7 +118,7 @@ bindsym $m+0 move container to workspace 10
 # scbgn:Super+Shift+c:reload config:scfin
 bindsym $m+$s+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# # scbgn:Super+Shift+c:restart:scfin
+# # scbgn:Super+Shift+r:restart:scfin
 bindsym $m+$s+r restart
 
 # printscreen
@@ -125,19 +128,30 @@ bindsym Print exec "bash <% system.utilspath %>/runner.sh screenshot"
 # scbgn:Super+l:lock screen:scfin
 bindsym $m+l exec "bash <% system.utilspath %>/runner.sh lockscreen"
 
+# scratchpad
+# scbgn:Super+BackSpace:move to scratchpad:scfin
+bindsym $m+BackSpace move to scratchpad
+# scbgn:Super+Shift+BackSpace:retrieve from scratchpad:scfin
+bindsym $m+$s+BackSpace scratchpad show
+
 # scbgn::Section/Quickstart:scfin
 # scbgn:Super+Return:quickstart mode:scfin
 bindsym $m+Return mode "quickstart"
 # quickstart menu
 mode "quickstart" {
-  # scbgn:Super+Return Super+Return:start terminal:scfin
-  bindsym $m+Return exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
-  # scbgn:Super+Return Return:start terminal:scfin
-  bindsym Return exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  # scbgn:Super+Return Super+Return:retrieve terminal from scratchpad:scfin
+  bindsym $m+Return [class="Mate-terminal"] scratchpad show; mode "default"
+  # scbgn:Super+Return Return:retrieve terminal from scratchpad:scfin
+  bindsym Return [class="Mate-terminal"] scratchpad show; mode "default"
+
   # scbgn:Super+Return Super+z:start browser:scfin
   bindsym $m+z exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
   # scbgn:Super+Return z:start browser:scfin
   bindsym z exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
+  # scbgn:Super+Return Super+x:start terminal:scfin
+  bindsym $m+x exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  # scbgn:Super+Return x:start terminal:scfin
+  bindsym x exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
 
   # back to normal
   bindsym Escape mode "default"
