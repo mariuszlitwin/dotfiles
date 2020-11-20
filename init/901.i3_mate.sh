@@ -76,12 +76,12 @@ cp -r ${HOME}/build/ubuntu-mate-artwork/usr/share/gtksourceview-3.0/styles/* \
 
 # Configure MATE
 dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
-dconf write /org/mate/desktop/session/required-components-list "['windowmanager', 'panel']"
+dconf write /org/mate/desktop/session/required-components-list "['windowmanager', 'panel', 'dock']"
 dconf write /org/mate/desktop/background/show-desktop-icons "false"
 dconf write /org/mate/panel/general/default-layout "'i3-tweak'"
 
 dconf write /org/mate/marco/general/theme "'Ambiant-MATE'"
-dconf write /org/mate/desktop/interface/gtk-theme "'Ambiant-MATE'"
+dconf write /org/mate/desktop/interface/gtk-theme "'Ambiant-MATE-Dark'"
 dconf write /org/mate/desktop/interface/icon-theme "'Ambiant-MATE'"
 
 dconf write /org/mate/desktop/interface/font-name "'Ubuntu 11'"
