@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# init/101.apt.sh
+# init/301.keybase.sh
 #
-# Install apt-based packages
+# Install Keybase
 
 # Invocation
 set -o nounset

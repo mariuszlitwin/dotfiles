@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# init/112.flatpak.sh
+# init/111.snap.sh
 #
-# Install apt-based packages
+# Install snap-based packages
 
 # Invocation
 set -o nounset
