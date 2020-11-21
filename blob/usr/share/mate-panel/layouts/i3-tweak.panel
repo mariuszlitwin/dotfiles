@@ -3,14 +3,6 @@ default-layout='i3-tweak'
 object-id-list=['appmenuapplet', 'notificationarea', 'indicatorappletcomplete']
 toplevel-id-list=['top']
 
-[objects/appmenuapplet]
-locked=true
-applet-iid='AppmenuAppletFactory::AppmenuApplet'
-position=0
-toplevel-id='top'
-object-type='applet'
-panel-right-stick=false
-
 [objects/indicatorappletcomplete]
 locked=true
 applet-iid='IndicatorAppletCompleteFactory::IndicatorAppletComplete'
