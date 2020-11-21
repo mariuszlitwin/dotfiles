@@ -22,6 +22,8 @@ alias myip="curl http://ipecho.net/plain; echo"
 
 alias xclip="xclip -selection clipboard"
 
+alias tm="tmux new-session -A -s"
+
 alias stow="stow -d ~/dotfiles/build -t ~/"
 alias dotfiles="perl ~/dotfiles/rebuild.pl"
 
