@@ -25,7 +25,7 @@ fi
 sudo apt -y install vim git make build-essential wget curl stow unrar tmux \
                     llvm xz-utils tk-dev gnupg2 \
                     tlp tlp-rdw mc \
-                    python3 python3-dev python3-pip \
+                    python3 python3-dev python3-pip pythonpy \
                     libssl-dev zlib1g-dev libbz2-dev bzip2 \
                     libreadline-dev libsqlite3-dev \
                     libncurses5-dev libncursesw5-dev \
@@ -33,4 +33,6 @@ sudo apt -y install vim git make build-essential wget curl stow unrar tmux \
                     gconf-service \
                     virtualbox docker.io \
                     xclip scrot \
-                    snapd flatpak
+                    snapd flatpak \
+                    openssl opensc-pkcs11 libengine-pkcs11-openssl \
+                    yubikey-manager
