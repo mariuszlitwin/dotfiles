@@ -10,10 +10,10 @@ XTerm*locale:          true
 XTerm*metaSendsEscape: true
 XTerm*eightBitInput:   false
 XTerm*saveLines:       4096
-XTerm*faceName:        <% font.monospace %>:pixelsize=<% font.pixelsize %>
+XTerm*faceName:        <% font.monospace %>:pixelsize=14
 
 ! URxvt 
-URxvt*font:            xft:<% font.monospace %>:pixelsize=<% font.pixelsize %>
+URxvt*font:            xft:<% font.monospace %>:pixelsize=14
 URxvt*scrollBar:       false
 URxvt*title:           terminal
 URxvt*borderless:      1

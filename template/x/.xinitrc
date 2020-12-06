@@ -9,7 +9,7 @@ if [[ $DISPLAY ]] && [[ -f ~/.Xresources ]] && which xrdb > /dev/null 2>&1; then
 fi;
 
 # Is current terminal able to display color?
-if [ -x <% system.binpath %>/tput ] && tput setaf 1 >& /dev/null; then
+if [ -x <% system.bin_path %>/tput ] && tput setaf 1 >& /dev/null; then
   export IS_COLOR_TERM=true
 else
   export IS_COLOR_TERM=false

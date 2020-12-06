@@ -15,7 +15,7 @@ font pango:<% font.base %> 16px
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $m
 
-exec "bash <% system.utilspath %>/runner.sh terminal"
+exec "bash <% system.utils_path %>/runner.sh terminal"
 for_window [class="Mate-terminal"] floating enable; move to scratchpad; scratchpad show; resize set 1280 720
 
 # kill focused window
@@ -24,7 +24,7 @@ bindsym $m+w kill
 
 # start app picker
 # scbgn:Super+space:start dmenu:end
-bindsym $m+space exec i3-dmenu-desktop --dmenu="bash <% system.utilspath %>/dmenu.sh '>'"
+bindsym $m+space exec i3-dmenu-desktop --dmenu="bash <% system.utils_path %>/dmenu.sh '>'"
 
 # focus on the cursor keys:
 # scbgn:Super+Left:focus window on left:scfin
@@ -123,10 +123,10 @@ bindsym $m+$s+r restart
 
 # printscreen
 # scbgn:Printscreen:printscreen:scfin
-bindsym Print exec "bash <% system.utilspath %>/runner.sh screenshot"
+bindsym Print exec "bash <% system.utils_path %>/runner.sh screenshot"
 # lock screen
 # scbgn:Super+l:lock screen:scfin
-bindsym $m+l exec "bash <% system.utilspath %>/runner.sh lockscreen"
+bindsym $m+l exec "bash <% system.utils_path %>/runner.sh lockscreen"
 
 # scratchpad
 # scbgn:Super+BackSpace:move to scratchpad:scfin
@@ -145,13 +145,13 @@ mode "quickstart" {
   bindsym Return [class="Mate-terminal"] scratchpad show; mode "default"
 
   # scbgn:Super+Return Super+z:start browser:scfin
-  bindsym $m+z exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
+  bindsym $m+z exec "bash <% system.utils_path %>/runner.sh browser"; mode "default"
   # scbgn:Super+Return z:start browser:scfin
-  bindsym z exec "bash <% system.utilspath %>/runner.sh browser"; mode "default"
+  bindsym z exec "bash <% system.utils_path %>/runner.sh browser"; mode "default"
   # scbgn:Super+Return Super+x:start terminal:scfin
-  bindsym $m+x exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  bindsym $m+x exec "bash <% system.utils_path %>/runner.sh terminal"; mode "default"
   # scbgn:Super+Return x:start terminal:scfin
-  bindsym x exec "bash <% system.utilspath %>/runner.sh terminal"; mode "default"
+  bindsym x exec "bash <% system.utils_path %>/runner.sh terminal"; mode "default"
 
   # back to normal
   bindsym Escape mode "default"
@@ -178,10 +178,10 @@ mode "resize" {
 # Colors
 # URL: https://thomashunter.name/i3-configurator
 # class                 top     bground text    bottom    sides
-client.focused          #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>  #<% color.primary-bg %>  #<% color.primary-bg %>
-client.focused_inactive #<% color.lprimary-bg %> #<% color.lprimary-bg %> #<% color.lprimary-fg %> #<% color.lprimary-bg %> #<% color.lprimary-bg %>
+client.focused          #<% color.primary_bg %> #<% color.primary_bg %> #<% color.primary_fg %>  #<% color.primary_bg %>  #<% color.primary_bg %>
+client.focused_inactive #<% color.lprimary_bg %> #<% color.lprimary_bg %> #<% color.lprimary_fg %> #<% color.lprimary_bg %> #<% color.lprimary_bg %>
 client.unfocused        #<% color.background %> #<% color.background %> #<% color.foreground %> #<% color.background %> #<% color.background %>
-client.urgent           #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %> #<% color.danger-bg %> #<% color.danger-bg %>
+client.urgent           #<% color.danger_bg %> #<% color.danger_bg %> #<% color.danger_fg %> #<% color.danger_bg %> #<% color.danger_bg %>
 client.placeholder      #<% color.background %> #<% color.background %> #<% color.lforeground %> #<% color.background %> #<% color.background %>
 client.background       #<% color.background %>
 
@@ -192,11 +192,11 @@ bar {
     separator          #<% color.background %>
 
     # class            border bground text
-    focused_workspace  #<% color.primary-bg %> #<% color.primary-bg %> #<% color.primary-fg %>
-    active_workspace   #<% color.lprimary-bg %> #<% color.lprimary-bg %> #<% color.lprimary-fg %>
+    focused_workspace  #<% color.primary_bg %> #<% color.primary_bg %> #<% color.primary_fg %>
+    active_workspace   #<% color.lprimary_bg %> #<% color.lprimary_bg %> #<% color.lprimary_fg %>
     inactive_workspace #<% color.background %> #<% color.background %> #<% color.foreground %>
-    urgent_workspace   #<% color.danger-bg %> #<% color.danger-bg %> #<% color.danger-fg %>
-    binding_mode       #<% color.warning-bg %> #<% color.warning-bg %> #<% color.warning-fg %>
+    urgent_workspace   #<% color.danger_bg %> #<% color.danger_bg %> #<% color.danger_fg %>
+    binding_mode       #<% color.warning_bg %> #<% color.warning_bg %> #<% color.warning_fg %>
   }
 
   position bottom

@@ -65,7 +65,7 @@ separator_color = frame
 startup_notification = true
 
 # dmenu path
-dmenu = <% system.utilspath %>/dmenu.sh ♫
+dmenu = <% system.utils_path %>/dmenu.sh ♫
 
 # browser for opening urls in context menu
 browser = xdg-open
@@ -84,11 +84,11 @@ foreground = "#<% color.foreground %>"
 timeout = 10
 
 [urgency_normal]
-background = "#<% color.primary-bg %>"
-foreground = "#<% color.primary-fg %>"
+background = "#<% color.primary_bg %>"
+foreground = "#<% color.primary_fg %>"
 timeout = 10
 
 [urgency_critical]
-background = "#<% color.danger-bg %>"
-foreground = "#<% color.danger-fg %>"
+background = "#<% color.danger_bg %>"
+foreground = "#<% color.danger_fg %>"
 timeout = 0
