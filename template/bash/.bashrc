@@ -72,3 +72,10 @@ fi
 if [ -f ~/.bash_snowflake ]; then
   . ~/.bash_snowflake
 fi
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  tmux new-session -d -s dancefloor > /dev/null 2>&1
+  bmenu "Pick tmux session or name the new one" < <(tmux list-sessions -F "#{session_name}")
+  tmux new-session -A -s $BMENU
+  export -n BMENU PROMPT
+fi
