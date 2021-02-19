@@ -25,7 +25,7 @@ alias xclip="xclip -selection clipboard"
 alias tm="tmux new-session -A -s"
 
 alias stow="stow -d ~/dotfiles/build -t ~/"
-alias dotfiles="perl ~/dotfiles/rebuild.pl"
+alias dotfiles="python3 ~/dotfiles/rebuild.py"
 
 alias lockscreen="mate-screensaver-command --lock"
 alias screenshot="scrot ${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
