@@ -13,39 +13,27 @@ import shutil
 from typing import Any, Text
 
 
-def attr_value(v: Any) -> Any:
-    return AttrDict(v) if type(v) == dict else v
-
-
 class AttrDict(dict):
-    def __getattr__(self, key: Text) -> Any:
+    def __getattr__(self, key: Text) -> Union[AttrDict, T]:
         return self[key]
 
-    @staticmethod
-    def _process_args(mapping=(), **kwargs):
-        if hasattr(mapping, "items"):
-            mapping = getattr(mapping, "items")()
-        return (
-            (k, attr_value(v))
-            for k, v in itertools.chain(mapping, getattr(kwargs, "items")())
+    def __init__(self, map: Mapping[Text, T], **kwargs: T):
+        super(AttrDict, self).__init__(
+            {
+                k: AttrDict(v) if type(v) == dict else v
+                for k, v in itertools.chain(map.items(), kwargs.items())
+            }
         )
 
-    def __init__(self, mapping=(), **kwargs):
-        super(AttrDict, self).__init__(self._process_args(mapping, **kwargs))
+
+_format_pattern = re.compile(r"<%\s*([A-Za-z_][a-zA-Z_\.0-9]*)\s*%>")
 
 
 def format(content: Text, config: dict) -> Text:
-    swaps = [
-        ("{", "{{"),
-        ("}", "}}"),
-        ("<% ", "{"),
-        (" %>", "}"),
-        ("<%", "{"),
-        ("%>", "}"),
-    ]
-    for r in swaps:
-        content = content.replace(r[0], r[1])
-    return content.format(**config)
+    for old, new in [("{", "{{"), ("}", "}}")]:
+        content = content.replace(old, new)
+    content = _format_pattern.sub(r"{cfg.\1}", content)
+    return content.format(cfg=cfg)
 
 
 def run(path: pathlib.Path):
