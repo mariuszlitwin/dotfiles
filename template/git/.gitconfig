@@ -1,6 +1,6 @@
 [user]
     email = mariusz@litwikon.com
     name = Mariusz Litwin
-#    signingkey = B55B4063FC6763CB
+    signingkey = 0ED16BADB1068A7F
 [commit]
-#    gpgsign = true
+    gpgsign = true
