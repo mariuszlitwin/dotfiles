@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-
+import re
 import argparse
 import json
 import logging
@@ -10,14 +10,14 @@ import itertools
 
 import shutil
 
-from typing import Any, Text
+from typing import Any, Text, Union, Mapping
 
 
 class AttrDict(dict):
-    def __getattr__(self, key: Text) -> Union[AttrDict, T]:
+    def __getattr__(self, key: Text) -> Any:
         return self[key]
 
-    def __init__(self, map: Mapping[Text, T], **kwargs: T):
+    def __init__(self, map: Mapping[Text, Any], **kwargs: Any):
         super(AttrDict, self).__init__(
             {
                 k: AttrDict(v) if type(v) == dict else v
@@ -33,7 +33,7 @@ def format(content: Text, config: dict) -> Text:
     for old, new in [("{", "{{"), ("}", "}}")]:
         content = content.replace(old, new)
     content = _format_pattern.sub(r"{cfg.\1}", content)
-    return content.format(cfg=cfg)
+    return content.format(cfg=config)
 
 
 def run(path: pathlib.Path):
