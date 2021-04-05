@@ -73,6 +73,11 @@ if [ -f ~/.bash_snowflake ]; then
   . ~/.bash_snowflake
 fi
 
+# Make GPG default SSH key provider
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   tmux new-session -d -s dancefloor > /dev/null 2>&1
   bmenu "Pick tmux session or name the new one" < <(tmux list-sessions -F "#{session_name}")
