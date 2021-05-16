@@ -82,9 +82,16 @@ export PATH="/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] &&
+   [[ ! "$TERM_PROGRAM" == "vscode" ]] &&
+   [[ ! "$TERM" =~ screen ]] &&
+   [[ ! "$TERM" =~ tmux ]] &&
+   [ -z "$TMUX" ]
+then
   tmux new-session -d -s dancefloor > /dev/null 2>&1
   bmenu "Pick tmux session or name the new one" < <(tmux list-sessions -F "#{session_name}")
   tmux new-session -A -s $BMENU
   export -n BMENU PROMPT
+elif [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  tmux new-session -A -s visual-studio-code
 fi
