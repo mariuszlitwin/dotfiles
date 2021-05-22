@@ -16,3 +16,4 @@ echo "$in" | <% system.bin_path %>/dmenu -i -b -l 12 \
                                         -sf '#<% color.primary_fg %>' \
                                         -fn '<% font.base %>:pixelsize=14' \
                                         -p "$prompt " $@
+                                        

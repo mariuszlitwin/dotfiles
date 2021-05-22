@@ -15,8 +15,8 @@ font pango:<% font.base %> 16px
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $m
 
-exec "bash <% system.utils_path %>/runner.sh terminal -t dancefloor"
-for_window [title="dancefloor"] floating enable; move to scratchpad; scratchpad show; resize set 1280 720
+exec "bash <% system.utils_path %>/runner.sh dancefloor"
+for_window [title="dancefloor"] move to scratchpad; scratchpad show; floating enable; resize set 1280 720
 
 # kill focused window
 # scbgn:Super+w:kill window:scfin
@@ -139,10 +139,10 @@ bindsym $m+$s+BackSpace scratchpad show
 bindsym $m+Return mode "quickstart"
 # quickstart menu
 mode "quickstart" {
-  # scbgn:Super+Return Super+Shift+Return:start a new instance of scraptchpad termina:scfin
-  bindsym $m+$s+Return exec "bash <% system.utils_path %>/runner.sh terminal -t dancefloor"; mode "default"
-  # scbgn:Super+Return Shift+Return:start a new instance of scraptchpad termina:scfin
-  bindsym $s+Return exec "bash <% system.utils_path %>/runner.sh terminal -t dancefloor"; mode "default"
+  # scbgn:Super+Return Super+Shift+Return:start a new instance of scraptchpad terminal:scfin
+  bindsym $m+$s+Return exec "bash <% system.utils_path %>/runner.sh dancefloor"; mode "default"
+  # scbgn:Super+Return Shift+Return:start a new instance of scraptchpad terminal:scfin
+  bindsym $s+Return exec "bash <% system.utils_path %>/runner.sh dancefloor"; mode "default"
   # scbgn:Super+Return Super+Return:retrieve terminal from scratchpad:scfin
   bindsym $m+Return [title="dancefloor"] scratchpad show; mode "default"
   # scbgn:Super+Return Return:retrieve terminal from scratchpad:scfin

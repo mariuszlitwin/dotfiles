@@ -5,15 +5,23 @@
 *antialias: true
 *autohint:  true
 
+Xft*rgba: none
+Xft*hintstyle: hintfull
+
 ! XTerm
 XTerm*locale:          true
 XTerm*metaSendsEscape: true
 XTerm*eightBitInput:   false
 XTerm*saveLines:       4096
-XTerm*faceName:        <% font.monospace %>:pixelsize=14
+XTerm*faceName:        xft:<% font.monospace %>:pixelsize=14
+XTerm*background:      #<% color.background %>
+XTerm*foreground:      #<% color.foreground %>
 
 ! URxvt 
-URxvt*font:            xft:<% font.monospace %>:pixelsize=14
+URxvt*font:            xft:<% font.monospace %>:style=Regular:pixelsize=16
+URxvt*boldFont:        xft:<% font.monospace %>:style=Bold:pixelsize=16
+URxvt*italicFont:      xft:<% font.monospace %>:style=Italic:pixelsize=16
+URxvt*boldItalicFont:  xft:<% font.monospace %>:style=Bold Italic:pixelsize=16
 URxvt*scrollBar:       false
 URxvt*title:           terminal
 URxvt*borderless:      1

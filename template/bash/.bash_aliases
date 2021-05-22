@@ -11,7 +11,6 @@ alias df="df -Tha --total"
 alias du="du -ach | sort -h"
 alias free="free -mt"
 
-alias ps="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 
 alias cls="clear"
@@ -30,6 +29,7 @@ alias dotfiles="python3 ~/dotfiles/rebuild.py"
 alias lockscreen="mate-screensaver-command --lock"
 alias screenshot="scrot ${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
 alias terminal="mate-terminal"
+alias dancefloor="mate-terminal --title dancefloor"
 alias browser="google-chrome"
 
 function __bw_macro {
