@@ -79,8 +79,10 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 export PATH="/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv &> /dev/null; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] &&
    [[ ! "$TERM_PROGRAM" == "vscode" ]] &&
