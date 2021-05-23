@@ -24,7 +24,7 @@ bindsym $m+w kill
 
 # start app picker
 # scbgn:Super+space:start dmenu:end
-bindsym $m+space exec i3-dmenu-desktop --dmenu="bash <% system.utils_path %>/dmenu.sh '>'"
+bindsym $m+space exec bash <% system.utils_path %>/rofi.sh -show-icons -show drun
 
 # focus on the cursor keys:
 # scbgn:Super+Left:focus window on left:scfin

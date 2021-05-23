@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 #
-# dmenu.sh : script for starting various app menus in consistent way
+# rofi.sh : script for spawning riced rofi
 #
-# Ref.: dotfiles/template/run-on-demand/dmenu.sh
+# Ref.: dotfiles/template/run-on-demand/rofi.sh
 
-# Usage: bash dmenu.sh <prompt>
+# Usage: bash rofi.sh
 
-prompt=$1; shift
-in=$(cat)
-
-echo "$in" | <% system.bin_path %>/rofi -dmenu \
-             -p "$prompt" \
+<% system.bin_path %>/rofi \
              -font "<% font.base %> 14" \
              -color-window "#<% color.background %>, #<% color.foreground %>, #<% color.foreground %>" \
              -color-normal "#<% color.background %>, #<% color.foreground %>, #<% color.background %>, #<% color.lbackground %>, #<% color.foreground %>" \

@@ -23,7 +23,7 @@ if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then
 fi
 
 # Install i3
-sudo apt -y install i3
+sudo apt -y install i3 rofi
 
 # Install MATE applet(s)
 sudo apt -y install mate-applet-appmenu
