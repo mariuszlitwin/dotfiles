@@ -38,7 +38,10 @@ def format(content: Text, config: dict) -> Text:
 
 def run(path: pathlib.Path):
     logging.info(f"running {path}")
-    os.system(f"bash {path}")
+    if path.suffix == ".py":
+        os.system(f"python3 {path}")
+    else:
+        os.system(f"bash {path}")
 
 
 def run_all(path: pathlib.Path):

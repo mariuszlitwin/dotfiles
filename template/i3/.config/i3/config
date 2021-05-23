@@ -23,8 +23,12 @@ for_window [title="dancefloor"] move to scratchpad; scratchpad show; floating en
 bindsym $m+w kill
 
 # start app picker
-# scbgn:Super+space:start dmenu:end
-bindsym $m+space exec bash <% system.utils_path %>/rofi.sh -show-icons -show drun
+# scbgn:Super+space:start app picker:end
+bindsym $m+space exec bash <% system.utils_path %>/rofi.sh -show-icons -show drun -display-drun ✨
+
+# start emoji picker
+# scbgn:Super+semicolon:start emoji picker:end
+bindsym $m+semicolon exec bash <% system.utils_path %>/emenu.sh
 
 # focus on the cursor keys:
 # scbgn:Super+Left:focus window on left:scfin
