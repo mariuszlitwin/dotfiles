@@ -24,8 +24,8 @@
     "lbackground": "#919394",
     "foreground": "#fcfcfc",
     "lforeground": "#ffffff",
-    "primary_bg": "#21d96d",
-    "primary_fg": "#3c3b37",
+    "primary_bg": "#3daee9",
+    "primary_fg": "#31363b",
     "lprimary_bg": "#d4d4d4",
     "lprimary_fg": "#3c3b37",
     "danger_bg": "#ed2929",
@@ -43,7 +43,9 @@
     "info_bg": "#1abc9c",
     "info_fg": "#232629",
     "linfo_bg": "#1cdc9a",
-    "linfo_fg": "#232629"
+    "linfo_fg": "#232629",
+    "primary_bg_name": "blue",
+    "primary_fg_name": "black"
   },
   "font": {
     "base": "Ubuntu Regular",

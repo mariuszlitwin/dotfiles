@@ -3,14 +3,6 @@ size=24
 expand=true
 orientation=top
 
-[Object appmenuapplet]
-locked=true
-toplevel-id=top
-position=0
-object-type=applet
-applet-iid=AppmenuAppletFactory::AppmenuApplet
-panel-right-stick=false
-
 [Object notificationarea]
 locked=true
 toplevel-id=top

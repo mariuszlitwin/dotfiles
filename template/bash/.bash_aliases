@@ -66,9 +66,9 @@ function fr {
 }
 
 function _prompt {
-  fs fg:green
+  fs fg:primary_bg
   echo    "  , ,  "
-  fs fg:black bg:green
+  fs fg:primary bg:primary
   echo -n " [?_?] "
   fr all
 }
@@ -79,7 +79,7 @@ function _prompt {
 function prompt {
   _prompt
   echo " $1"
-  read -p "$(fs fg:black bg:green) > $(fr all) " PROMPT </dev/tty
+  read -p "$(fs fg:primary bg:primary) > $(fr all) " PROMPT </dev/tty
 }
 
 # Read from stdin, split by newline, ask user to pick and store the result in $BMENU env
@@ -92,11 +92,11 @@ function bmenu {
   echo " $1"
   echo ""
   for i in "${!opts[@]}"; do
-    echo "$(fs fg:black bg:green) $i $(fr all) ${opts[$i]}"
+    echo "$(fs fg:primary bg:primary) $i $(fr all) ${opts[$i]}"
   done
   echo
 
-  read -p "$(fs fg:black bg:green) > $(fr all) " PROMPT </dev/tty
+  read -p "$(fs fg:primary bg:primary) > $(fr all) " PROMPT </dev/tty
   # check if $PROMPT is an integer - stackoverflow.com/a/808740 - and if it is the array index
   if [ -n "$PROMPT" ] && [ "$PROMPT" -eq "$PROMPT" ] 2>/dev/null && [ -v opts[$PROMPT] ]; then
     export BMENU="${opts[$PROMPT]}"

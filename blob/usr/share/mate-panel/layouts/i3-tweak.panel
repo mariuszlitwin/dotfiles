@@ -1,6 +1,6 @@
 [general]
 default-layout='i3-tweak'
-object-id-list=['appmenuapplet', 'notificationarea', 'indicatorappletcomplete']
+object-id-list=['notificationarea', 'indicatorappletcomplete']
 toplevel-id-list=['top']
 
 [objects/indicatorappletcomplete]
