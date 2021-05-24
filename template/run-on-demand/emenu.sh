@@ -30,8 +30,8 @@ $(TZ=UTC date --rfc-3339=date)	today
 Ü	U umlaut                                                                    
 ß	ss
 ß	scharfes S"
-	[ -f ~/.emoji ] && cat ~/.emoji
-    	[ -f ~/emoji.sh ] && bash ~/emoji.sh
+	  [ -f ~/.emoji ] && cat ~/.emoji
+    [ -f ~/emoji.sh ] && bash ~/emoji.sh
     ;;
   "copy")
     emoji=$(tee | awk -F"\t" '{print $1}' | tr -d \n)
