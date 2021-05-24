@@ -74,26 +74,30 @@ if [ -f ~/.bash_snowflake ]; then
 fi
 
 # Make GPG default SSH key provider
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+if command -v gpg2 &> /dev/null && [ -z ${NO_GPG_SSH+x} ]
+then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi
 
 export PATH="/bin:$PATH"
-if command -v pyenv &> /dev/null; then
+if command -v pyenv &> /dev/null && [ -z ${NO_PYENV+x} ]
+then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] &&
+if command -v t &> /dev/null && [ -n "$PS1" ] &&
    [[ ! "$TERM_PROGRAM" == "vscode" ]] &&
    [[ ! "$TERM" =~ screen ]] &&
    [[ ! "$TERM" =~ tmux ]] &&
    [ -z "$TMUX" ]
 then
-  tmux new-session -d -s dancefloor > /dev/null 2>&1
-  bmenu "Pick tmux session or name the new one" < <(tmux list-sessions -F "#{session_name}")
-  tmux new-session -A -s $BMENU
+  t new-session -d -s dancefloor > /dev/null 2>&1
+  bmenu "Pick tmux session or name the new one" < <(t list-sessions -F "#{session_name}")
+  t new-session -A -s $BMENU
   export -n BMENU PROMPT
 elif [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  tmux new-session -A -s visual-studio-code
+  t new-session -A -s visual-studio-code
 fi
