@@ -29,7 +29,7 @@ alias dotfiles="python3 ~/dotfiles/rebuild.py"
 
 alias lockscreen="mate-screensaver-command --lock"
 alias screenshot="scrot ${HOME}/Pictures/%Y%m%d_%H%M_scrot.png"
-alias terminal="mate-terminal"
+alias terminal="mate-terminal --title terminal"
 alias dancefloor="mate-terminal --title dancefloor"
 alias browser="google-chrome"
 

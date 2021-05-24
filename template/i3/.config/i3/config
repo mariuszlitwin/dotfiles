@@ -24,11 +24,11 @@ bindsym $m+w kill
 
 # start app picker
 # scbgn:Super+space:start app picker:end
-bindsym $m+space exec --no-startup-id "rofi -show drun -config $HOME/.config/rofi/config.rasi"
+bindsym $m+space exec --no-startup-id "rofi -show drun"
 
 # start emoji picker
 # scbgn:Super+semicolon:start emoji picker:end
-bindsym $m+semicolon exec bash <% system.utils_path %>/emenu.sh
+bindsym $m+semicolon exec --no-startup-id "bash <% system.utils_path %>/emenu.sh"
 
 # focus on the cursor keys:
 # scbgn:Super+Left:focus window on left:scfin
