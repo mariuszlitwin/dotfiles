@@ -9,4 +9,4 @@
 prompt=$1; shift
 in=$(cat)
 
-echo "$in" | bash <% system.utils_path %>/rofi.sh -dmenu -p "$prompt" $@
+echo "$in" | rofi -dmenu -p "$prompt" $@

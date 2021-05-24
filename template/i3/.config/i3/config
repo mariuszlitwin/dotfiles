@@ -24,7 +24,7 @@ bindsym $m+w kill
 
 # start app picker
 # scbgn:Super+space:start app picker:end
-bindsym $m+space exec --no-startup-id "bash <% system.utils_path %>/rofi.sh -show-icons -show drun -display-run 🎮 -display-drun ✨ -display-window 🎰 -display-ssh 🖥️"
+bindsym $m+space exec --no-startup-id "rofi -show drun -config $HOME/.config/rofi/config.rasi"
 
 # start emoji picker
 # scbgn:Super+semicolon:start emoji picker:end

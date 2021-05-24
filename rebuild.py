@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
-import os
-import re
 import argparse
+import itertools
 import json
 import logging
+import os
 import pathlib
-import itertools
-
+import re
 import shutil
-
-from typing import Any, Text, Union, Mapping
+from typing import Any, Mapping, Text, Union
 
 
 class AttrDict(dict):
@@ -111,6 +109,7 @@ if __name__ == "__main__":
     config["system"]["dotfiles_path"] = config["system"].get(
         "dotfiles_path", args.template.parent
     )
+    config["color"] = AttrDict({k: v.strip("#") for k, v in config["color"].items()})
 
     if args.init:
         run_all(script_dir / "init")

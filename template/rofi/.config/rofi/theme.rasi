@@ -1,0 +1,116 @@
+* {
+    background-color:            #<% color.background %>;
+}
+
+window {
+    padding:          5;
+    background-color: #<% color.background %>;
+    border:           1;
+}
+mainbox {
+    padding: 0;
+    border:  0;
+}
+message {
+    padding:      1px;
+    border-color: #<% color.primary_bg %>;
+    border:       2px dash 0px 0px;
+}
+textbox {
+    text-color: #<% color.foreground %>;
+}
+listview {
+    padding:      2px 0px 0px;
+    scrollbar:    true;
+    border-color: #<% color.primary_bg %>;
+    spacing:      2px;
+    fixed-height: 0;
+    border:       2px dash 0px 0px;
+}
+element {
+    padding: 1px;
+    border:  0;
+}
+element normal.normal {
+    background-color: #<% color.background %>;
+    text-color:       #<% color.foreground %>;
+}
+element normal.urgent {
+    background-color: #<% color.ldanger_bg %>;
+    text-color:       #<% color.ldanger_fg %>;
+}
+element normal.active {
+    background-color: #<% color.lprimary_bg %>;
+    text-color:       #<% color.lprimary_fg %>;
+}
+element selected.normal {
+    background-color: #<% color.primary_bg %>;
+    text-color:       #<% color.primary_fg %>;
+}
+element selected.urgent {
+    background-color: #<% color.danger_bg %>;
+    text-color:       #<% color.danger_fg %>;
+}
+element selected.active {
+    background-color: #<% color.primary_bg %>;
+    text-color:       #<% color.primary_fg %>;
+}
+element alternate.normal {
+    background-color: #<% color.background %>;
+    text-color:       #<% color.foreground %>;
+}
+element alternate.urgent {
+    background-color: #<% color.ldanger_bg %>;
+    text-color:       #<% color.ldanger_fg %>;
+}
+element alternate.active {
+    background-color: #<% color.lprimary_bg %>;
+    text-color:       #<% color.lprimary_fg %>;
+}
+scrollbar {
+    width:        4px;
+    padding:      0;
+    handle-width: 8px;
+    border:       0;
+    handle-color: #<% color.primary_bg %>;
+}
+mode-switcher {
+    border-color: #<% color.primary_bg %>;
+    border:       2px dash 0px 0px;
+}
+button {
+    spacing:    0;
+    text-color: #<% color.primary_bg %>;
+}
+button selected {
+    background-color: #<% color.primary_bg %>;
+    text-color:       #<% color.primary_fg %>;
+}
+inputbar {
+    padding:    1px;
+    spacing:    0px;
+    text-color: #<% color.foreground %>;
+    children:   [ prompt,textbox-prompt-colon,entry,overlay,case-indicator ];
+}
+case-indicator {
+    spacing:    0;
+    text-color: #<% color.foreground %>;
+}
+entry {
+    spacing:    0;
+    text-color: #<% color.foreground %>;
+}
+prompt {
+    spacing:    0;
+    text-color: #<% color.foreground %>;
+}
+textbox-prompt-colon {
+    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    expand:     false;
+    str:        ":";
+    text-color: inherit;
+}
+error-message {
+    background-color: rgba ( 0, 0, 0, 0 % );
+    text-color:       #<% color.foreground %>;
+}
