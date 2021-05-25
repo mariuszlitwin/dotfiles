@@ -41,6 +41,6 @@ $(TZ=UTC date --rfc-3339=date)	today
     fi
     ;;
   "")
-    bash $0 list | bash <% system.utils_path %>/dmenu.sh "😀" | bash $0 copy
+    bash $0 list | bash <% system.utils_path %>/dmenu.sh " EMOJI" -theme $HOME/.config/rofi/sidebar.rasi | bash $0 copy
     ;;
 esac

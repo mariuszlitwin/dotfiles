@@ -3,8 +3,8 @@ configuration {
     font: "<% font.base %> 14";
     show-icons: true;
     display-window: "WINDOW";
-    display-run: "RUN";
-    display-ssh: "SSH";
-    display-drun: "DRUN";
+    display-run: "   RUN";
+    display-ssh: "   SSH";
+    display-drun: "  DRUN";
     theme: "theme.rasi";
 }

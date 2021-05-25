@@ -30,6 +30,10 @@ bindsym $m+space exec --no-startup-id "rofi -show drun"
 # scbgn:Super+semicolon:start emoji picker:end
 bindsym $m+semicolon exec --no-startup-id "bash <% system.utils_path %>/emenu.sh"
 
+# start power menu
+# scbgn:Super+Escape:start power menu:end
+bindsym $m+Escape exec --no-startup-id "bash <% system.utils_path %>/pmenu.sh"
+
 # focus on the cursor keys:
 # scbgn:Super+Left:focus window on left:scfin
 bindsym $m+Left  focus left
