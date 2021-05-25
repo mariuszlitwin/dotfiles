@@ -2,9 +2,9 @@ configuration {
     modi: "drun,run,window,ssh";
     font: "<% font.base %> 14";
     show-icons: true;
-    display-window: "🎰";
-    display-run: "🎮";
-    display-ssh: "🖥️";
-    display-drun: "✨";
+    display-window: "WINDOW";
+    display-run: "RUN";
+    display-ssh: "SSH";
+    display-drun: "DRUN";
     theme: "theme.rasi";
 }

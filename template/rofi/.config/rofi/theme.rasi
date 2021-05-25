@@ -1,116 +1,77 @@
+// Mostly copied from by https://gitlab.com/vahnrr/rofi-menus
+// Copyright (c) 2020 vahnrr, MIT License
+
 * {
-    background-color:            #<% color.background %>;
+  background-color: @background;
+  text-color: @foreground-list;
+  font: @text-font;
+
+  /* General */
+  text-font:                            "<% font.base %> 14";
+  text-font-mono:                       "<% font.monospace %> 14";
+  icon-font:                            "<% font.base %> 60";
+  icon-font-small:                      "<% font.base %> 24";
+  all-inputbar-margin:                  4px 4px;
+  all-prompt-padding:                   16px 20px;
+  all-entry-padding:                    18px 16px 16px 0px;
+
+  /* list menus: apps, network and vpn */
+  list-element-padding:                 20px;
+  list-element-margin:                  @all-inputbar-margin;
+  list-element-border:                  0px 0px 0px 8px;
+  list-8-window-padding:                219px 360px;
+  apps-textbox-prompt-colon-padding:    16px;
+
+  accent:           #<% color.blue %>;
+  background:       #<% color.background %>;
+  background-light: #<% color.brightbackground %>;
+  background-focus: #<% color.primary_bg %>;
+  foreground:       #<% color.foreground %>;
+  foreground-list:  #<% color.foreground %>;
+  on:               #<% color.success_bg %>;
+  off:              #<% color.danger_bg %>;
 }
 
-window {
-    padding:          5;
-    background-color: #<% color.background %>;
-    border:           1;
+#window {
+  width: 100%;
+  height: 100%;
+  padding: @list-8-window-padding;
 }
-mainbox {
-    padding: 0;
-    border:  0;
-}
-message {
-    padding:      1px;
-    border-color: #<% color.primary_bg %>;
-    border:       2px dash 0px 0px;
-}
-textbox {
-    text-color: #<% color.foreground %>;
-}
-listview {
-    padding:      2px 0px 0px;
-    scrollbar:    true;
-    border-color: #<% color.primary_bg %>;
-    spacing:      2px;
-    fixed-height: 0;
-    border:       2px dash 0px 0px;
-}
-element {
-    padding: 1px;
-    border:  0;
-}
-element normal.normal {
-    background-color: #<% color.background %>;
-    text-color:       #<% color.foreground %>;
-}
-element normal.urgent {
-    background-color: #<% color.brightdanger_bg %>;
-    text-color:       #<% color.brightdanger_fg %>;
-}
-element normal.active {
-    background-color: #<% color.brightprimary_bg %>;
-    text-color:       #<% color.brightprimary_fg %>;
-}
-element selected.normal {
-    background-color: #<% color.primary_bg %>;
-    text-color:       #<% color.primary_fg %>;
-}
-element selected.urgent {
-    background-color: #<% color.danger_bg %>;
-    text-color:       #<% color.danger_fg %>;
-}
-element selected.active {
-    background-color: #<% color.primary_bg %>;
-    text-color:       #<% color.primary_fg %>;
-}
-element alternate.normal {
-    background-color: #<% color.background %>;
-    text-color:       #<% color.foreground %>;
-}
-element alternate.urgent {
-    background-color: #<% color.brightdanger_bg %>;
-    text-color:       #<% color.brightdanger_fg %>;
-}
-element alternate.active {
-    background-color: #<% color.brightprimary_bg %>;
-    text-color:       #<% color.brightprimary_fg %>;
-}
-scrollbar {
-    width:        4px;
-    padding:      0;
-    handle-width: 8px;
-    border:       0;
-    handle-color: #<% color.primary_bg %>;
-}
-mode-switcher {
-    border-color: #<% color.primary_bg %>;
-    border:       2px dash 0px 0px;
-}
-button {
-    spacing:    0;
-    text-color: #<% color.primary_bg %>;
-}
-button selected {
-    background-color: #<% color.primary_bg %>;
-    text-color:       #<% color.primary_fg %>;
-}
-inputbar {
-    padding:    1px;
-    spacing:    0px;
-    text-color: #<% color.foreground %>;
-    children:   [ prompt,textbox-prompt-colon,entry,overlay,case-indicator ];
-}
-case-indicator {
-    spacing:    0;
-    text-color: #<% color.foreground %>;
-}
+
+inputbar,
+prompt,
+textbox-prompt-colon,
 entry {
-    spacing:    0;
-    text-color: #<% color.foreground %>;
+  background-color: @background-light;
 }
-prompt {
-    spacing:    0;
-    text-color: #<% color.foreground %>;
+#inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+  margin: @all-inputbar-margin;
 }
-textbox-prompt-colon {
-    margin:     0px 0.3000em 0.0000em 0.0000em ;
-    expand:     false;
-    str:        ":";
-    text-color: inherit;
+#prompt {
+  padding: @all-prompt-padding;
+  background-color: @accent;
+  text-color: @background;
 }
-error-message {
-    background-color: rgba ( 0, 0, 0, 0 % );
-    text-color:       #<% color.foreground %>;
+#textbox-prompt-colon {
+  expand: false;
+  str: "  : :  ";
+  padding: @apps-textbox-prompt-colon-padding;
 }
+#entry {
+  text-color: @accent;
+  padding: @all-entry-padding;
+}
+#element {
+  padding: @list-element-padding;
+  margin: @list-element-margin;
+  border: @list-element-border;
+  background-color: @background-light;
+  border-color: @background-light;
+}
+#element.selected {
+  background-color: @background-focus;
+  text-color: @accent;
+  border-color: @accent;
+}
+
