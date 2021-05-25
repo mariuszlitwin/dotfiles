@@ -200,8 +200,8 @@ bar {
     separator          #<% color.background %>
 
     # class            border bground text
-    focused_workspace  #<% color.primary_bg %> #<% color.primary_bg %> #<% color.primary_fg %>
-    active_workspace   #<% color.brightprimary_bg %> #<% color.brightprimary_bg %> #<% color.brightprimary_fg %>
+    focused_workspace  #<% color.brightprimary_bg %> #<% color.brightprimary_bg %> #<% color.brightprimary_fg %>
+    active_workspace   #<% color.background %> #<% color.background %> #<% color.foreground %>
     inactive_workspace #<% color.background %> #<% color.background %> #<% color.foreground %>
     urgent_workspace   #<% color.danger_bg %> #<% color.danger_bg %> #<% color.danger_fg %>
     binding_mode       #<% color.warning_bg %> #<% color.warning_bg %> #<% color.warning_fg %>
