@@ -187,10 +187,10 @@ mode "resize" {
 # URL: https://thomashunter.name/i3-configurator
 # class                 top     bground text    bottom    sides
 client.focused          #<% color.primary_bg %> #<% color.primary_bg %> #<% color.primary_fg %>  #<% color.primary_bg %>  #<% color.primary_bg %>
-client.focused_inactive #<% color.lprimary_bg %> #<% color.lprimary_bg %> #<% color.lprimary_fg %> #<% color.lprimary_bg %> #<% color.lprimary_bg %>
+client.focused_inactive #<% color.background %> #<% color.background %> #<% color.foreground %> #<% color.background %> #<% color.background %>
 client.unfocused        #<% color.background %> #<% color.background %> #<% color.foreground %> #<% color.background %> #<% color.background %>
 client.urgent           #<% color.danger_bg %> #<% color.danger_bg %> #<% color.danger_fg %> #<% color.danger_bg %> #<% color.danger_bg %>
-client.placeholder      #<% color.background %> #<% color.background %> #<% color.lforeground %> #<% color.background %> #<% color.background %>
+client.placeholder      #<% color.background %> #<% color.background %> #<% color.brightforeground %> #<% color.background %> #<% color.background %>
 client.background       #<% color.background %>
 
 bar {
@@ -201,7 +201,7 @@ bar {
 
     # class            border bground text
     focused_workspace  #<% color.primary_bg %> #<% color.primary_bg %> #<% color.primary_fg %>
-    active_workspace   #<% color.lprimary_bg %> #<% color.lprimary_bg %> #<% color.lprimary_fg %>
+    active_workspace   #<% color.brightprimary_bg %> #<% color.brightprimary_bg %> #<% color.brightprimary_fg %>
     inactive_workspace #<% color.background %> #<% color.background %> #<% color.foreground %>
     urgent_workspace   #<% color.danger_bg %> #<% color.danger_bg %> #<% color.danger_fg %>
     binding_mode       #<% color.warning_bg %> #<% color.warning_bg %> #<% color.warning_fg %>

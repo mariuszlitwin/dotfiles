@@ -36,12 +36,12 @@ element normal.normal {
     text-color:       #<% color.foreground %>;
 }
 element normal.urgent {
-    background-color: #<% color.ldanger_bg %>;
-    text-color:       #<% color.ldanger_fg %>;
+    background-color: #<% color.brightdanger_bg %>;
+    text-color:       #<% color.brightdanger_fg %>;
 }
 element normal.active {
-    background-color: #<% color.lprimary_bg %>;
-    text-color:       #<% color.lprimary_fg %>;
+    background-color: #<% color.brightprimary_bg %>;
+    text-color:       #<% color.brightprimary_fg %>;
 }
 element selected.normal {
     background-color: #<% color.primary_bg %>;
@@ -60,12 +60,12 @@ element alternate.normal {
     text-color:       #<% color.foreground %>;
 }
 element alternate.urgent {
-    background-color: #<% color.ldanger_bg %>;
-    text-color:       #<% color.ldanger_fg %>;
+    background-color: #<% color.brightdanger_bg %>;
+    text-color:       #<% color.brightdanger_fg %>;
 }
 element alternate.active {
-    background-color: #<% color.lprimary_bg %>;
-    text-color:       #<% color.lprimary_fg %>;
+    background-color: #<% color.brightprimary_bg %>;
+    text-color:       #<% color.brightprimary_fg %>;
 }
 scrollbar {
     width:        4px;

@@ -31,7 +31,10 @@ sudo apt -y install mate-indicator-applet
 sudo apt -y install mate-tweak
 
 # Install emoji font
-sudo apt -y install fonts-noto-color-emoji
+sudo apt -y install fonts-noto-color-emoji, fonts-roboto
+
+# Install fancy theme
+sudo apt -y install materia-gtk-theme
 
 # Load panel layout to /usr/share/mate-panel/layouts
 sudo cp ${__dir}/../blob/usr/share/mate-panel/layouts/i3-tweak.* \
@@ -80,12 +83,6 @@ dconf write /org/mate/desktop/session/required-components-list "['windowmanager'
 dconf write /org/mate/desktop/background/show-desktop-icons "false"
 dconf write /org/mate/panel/general/default-layout "'i3-tweak'"
 
-dconf write /org/mate/marco/general/theme "'Ambiant-MATE'"
-dconf write /org/mate/desktop/interface/gtk-theme "'Ambiant-MATE-Dark'"
+dconf write /org/mate/marco/general/theme "'Materia-dark-compact'"
+dconf write /org/mate/desktop/interface/gtk-theme "'Materia-dark-compact'"
 dconf write /org/mate/desktop/interface/icon-theme "'Ambiant-MATE'"
-
-dconf write /org/mate/desktop/interface/font-name "'Ubuntu 11'"
-dconf write /org/mate/desktop/interface/document-font-name "'Ubuntu 11'"
-dconf write /org/mate/caja/desktop/font "'Ubuntu 11'"
-dconf write /org/mate/marco/general/titlebar-font "'Ubuntu Medium 11'"
-dconf write /org/mate/desktop/interface/monospace-font-name "'Ubuntu Mono 13'"

@@ -13,7 +13,7 @@ dconf write /org/mate/terminal/profiles/default/allow-bold true
 dconf write /org/mate/terminal/profiles/default/background-color "'#<% color.background %>'"
 dconf write /org/mate/terminal/profiles/default/foreground-color "'#<% color.foreground %>'"
 
-dconf write /org/mate/terminal/profiles/default/palette "'#<% color.black %>:#<% color.red %>:#<% color.green %>:#<% color.yellow %>:#<% color.blue %>:#<% color.magenta %>:#<% color.cyan %>:#<% color.white %>:#<% color.lblack %>:#<% color.lred %>:#<% color.lgreen %>:#<% color.lyellow %>:#<% color.lblue %>:#<% color.lmagenta %>:#<% color.lcyan %>:#<% color.white %>'"
+dconf write /org/mate/terminal/profiles/default/palette "'#<% color.black %>:#<% color.red %>:#<% color.green %>:#<% color.yellow %>:#<% color.blue %>:#<% color.magenta %>:#<% color.cyan %>:#<% color.white %>:#<% color.brightblack %>:#<% color.brightred %>:#<% color.brightgreen %>:#<% color.brightyellow %>:#<% color.brightblue %>:#<% color.brightmagenta %>:#<% color.brightcyan %>:#<% color.white %>'"
 
 # Unbind some keyboard shortcuts to allow tmux work it's magic
 dconf write /org/mate/terminal/keybindings/zoom-in "'<Ctrl>+'"

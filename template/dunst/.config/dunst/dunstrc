@@ -71,7 +71,7 @@ dmenu = <% system.utils_path %>/dmenu.sh ♫
 browser = xdg-open
 
 frame_width = 1
-frame_color = "#<% color.lblack %>"
+frame_color = "#<% color.brightblack %>"
 
 [shortcuts]
 close = mod4+m

@@ -38,28 +38,28 @@ URxvt*scrollTtyKeypress: true
 ! special
 *foreground:  #<% color.foreground %>
 *background:  #<% color.background %>
-*cursorColor: #<% color.lforeground %>
+*cursorColor: #<% color.brightforeground %>
 ! black
 *color0:      #<% color.black %>
-*color8:      #<% color.lblack %>
+*color8:      #<% color.brightblack %>
 ! red
 *color1:      #<% color.red %>
-*color9:      #<% color.lred %>
+*color9:      #<% color.brightred %>
 ! green
 *color2:      #<% color.green %>
-*color10:     #<% color.lgreen %>
+*color10:     #<% color.brightgreen %>
 ! yellow
 *color3:      #<% color.yellow %>
-*color11:     #<% color.lyellow %>
+*color11:     #<% color.brightyellow %>
 ! blue
 *color4:      #<% color.blue %>
-*color12:     #<% color.lblue %>
+*color12:     #<% color.brightblue %>
 ! magenta
 *color5:      #<% color.magenta %>
-*color13:     #<% color.lmagenta %>
+*color13:     #<% color.brightmagenta %>
 ! cyan
 *color6:      #<% color.cyan %>
-*color14:     #<% color.lcyan %>
+*color14:     #<% color.brightcyan %>
 ! white
 *color7:      #<% color.white %>
 *color15:     #<% color.white %>

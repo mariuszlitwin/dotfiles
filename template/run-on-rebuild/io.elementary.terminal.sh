@@ -10,9 +10,9 @@ gsettings set io.elementary.terminal.settings allow-bold true
 
 gsettings set io.elementary.terminal.settings background '#<% color.background %>'
 gsettings set io.elementary.terminal.settings foreground '#<% color.foreground %>'
-gsettings set io.elementary.terminal.settings cursor-color '#<% color.lforeground %>'
+gsettings set io.elementary.terminal.settings cursor-color '#<% color.brightforeground %>'
 
-gsettings set io.elementary.terminal.settings palette '#<% color.black %>:#<% color.red %>:#<% color.green %>:#<% color.yellow %>:#<% color.blue %>:#<% color.magenta %>:#<% color.cyan %>:#<% color.white %>:#<% color.lblack %>:#<% color.lred %>:#<% color.lgreen %>:#<% color.lyellow %>:#<% color.lblue %>:#<% color.lmagenta %>:#<% color.lcyan %>:#<% color.white %>'
+gsettings set io.elementary.terminal.settings palette '#<% color.black %>:#<% color.red %>:#<% color.green %>:#<% color.yellow %>:#<% color.blue %>:#<% color.magenta %>:#<% color.cyan %>:#<% color.white %>:#<% color.brightblack %>:#<% color.brightred %>:#<% color.brightgreen %>:#<% color.brightyellow %>:#<% color.brightblue %>:#<% color.brightmagenta %>:#<% color.brightcyan %>:#<% color.white %>'
 
 gsettings set io.elementary.terminal.settings prefer-dark-style false
 

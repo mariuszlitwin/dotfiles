@@ -15,8 +15,8 @@ dconf load "/org/gnome/terminal/legacy/profiles:/:$profile/" <<EOF
     audible-bell=false
     foreground-color='#<% color.foreground %>'
     background-color='#<% color.background %>'
-    cursor-foreground-color='#<% color.lforeground %>'
-    palette=['#<% color.black %>', '#<% color.red %>', '#<% color.green %>', '#<% color.yellow %>', '#<% color.blue %>', '#<% color.magenta %>', '#<% color.cyan %>', '#<% color.white %>', '#<% color.lblack %>', '#<% color.lred %>', '#<% color.lgreen %>', '#<% color.lyellow %>', '#<% color.lblue %>', '#<% color.lmagenta %>', '#<% color.lcyan %>', '#<% color.white %>']
+    cursor-foreground-color='#<% color.brightforeground %>'
+    palette=['#<% color.black %>', '#<% color.red %>', '#<% color.green %>', '#<% color.yellow %>', '#<% color.blue %>', '#<% color.magenta %>', '#<% color.cyan %>', '#<% color.white %>', '#<% color.brightblack %>', '#<% color.brightred %>', '#<% color.brightgreen %>', '#<% color.brightyellow %>', '#<% color.brightblue %>', '#<% color.brightmagenta %>', '#<% color.brightcyan %>', '#<% color.white %>']
     use-theme-transparency=false
     use-theme-colors=false
     use-transparent-background=false
