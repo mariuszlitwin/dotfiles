@@ -1,0 +1,68 @@
+// Mostly copied from by https://gitlab.com/vahnrr/rofi-menus
+// Copyright (c) 2020 vahnrr, MIT License
+
+* {
+  background-color: @background;
+  text-color: @foreground-list;
+  font: @text-font;
+
+  /* General */
+  text-font:                            "<% font.base %> 14";
+  text-font-mono:                       "<% font.monospace %> 14";
+  icon-font:                            "<% font.base %> 60";
+  icon-font-small:                      "<% font.base %> 24";
+  all-inputbar-margin:                  4px 4px;
+  all-prompt-padding:                   16px 20px;
+  all-entry-padding:                    18px 16px 16px 0px;
+
+  /* list menus: apps, network and vpn */
+  list-element-padding:                 20px;
+  list-element-margin:                  @all-inputbar-margin;
+  list-element-border:                  0px 0px 0px 8px;
+  list-8-window-padding:                219px 360px;
+  apps-textbox-prompt-colon-padding:    16px;
+
+  accent:           #<% color.blue %>;
+  background:       #<% color.background %>;
+  background-light: #<% color.brightbackground %>;
+  background-focus: #<% color.primary_bg %>;
+  foreground:       #<% color.foreground %>;
+  foreground-list:  #<% color.foreground %>;
+  on:               #<% color.success_bg %>;
+  off:              #<% color.danger_bg %>;
+}
+
+#window {
+  width: 100%;
+  height: 100%;
+  padding: @list-8-window-padding;
+}
+
+inputbar,
+prompt,
+textbox-prompt-colon,
+entry {
+  background-color: @accent;
+}
+#inputbar {
+  children: [ prompt ];
+  margin: @all-inputbar-margin;
+}
+#prompt {
+  padding: @all-prompt-padding;
+  text-color: @background;
+  width: 100%;
+}
+#element {
+  padding: @list-element-padding;
+  margin: @list-element-margin;
+  border: @list-element-border;
+  background-color: @background-light;
+  border-color: @background-light;
+}
+#element.selected {
+  background-color: @background-focus;
+  text-color: @accent;
+  border-color: @accent;
+}
+
