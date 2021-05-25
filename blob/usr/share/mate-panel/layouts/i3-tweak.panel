@@ -1,11 +1,11 @@
 [general]
 default-layout='i3-tweak'
-object-id-list=['notificationarea', 'indicatorappletcomplete']
+object-id-list=['notificationarea', 'indicatorapplet']
 toplevel-id-list=['top']
 
-[objects/indicatorappletcomplete]
+[objects/indicatorapplet]
 locked=true
-applet-iid='IndicatorAppletCompleteFactory::IndicatorAppletComplete'
+applet-iid='IndicatorAppletFactory::IndicatorApplet
 position=10
 toplevel-id='top'
 object-type='applet'

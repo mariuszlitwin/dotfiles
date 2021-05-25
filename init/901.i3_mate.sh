@@ -31,7 +31,7 @@ sudo apt -y install mate-indicator-applet
 sudo apt -y install mate-tweak
 
 # Install emoji font
-sudo apt -y install fonts-noto-color-emoji, fonts-roboto
+sudo apt -y install fonts-noto-color-emoji fonts-roboto
 
 # Install fancy theme
 sudo apt -y install materia-gtk-theme

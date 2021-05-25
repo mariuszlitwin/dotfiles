@@ -11,11 +11,11 @@ object-type=applet
 applet-iid=NotificationAreaAppletFactory::NotificationArea
 panel-right-stick=false
 
-[Object indicatorappletcomplete]
+[Object indicatorapplet]
 locked=true
 toplevel-id=top
 position=10
 object-type=applet
-applet-iid=IndicatorAppletCompleteFactory::IndicatorAppletComplete
+applet-iid=IndicatorAppletFactory::IndicatorApplet
 panel-right-stick=true
 

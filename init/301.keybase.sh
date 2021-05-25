@@ -17,7 +17,7 @@ source "${__dir}/.invocation.sh"
    "${__distro}" != 'debian' ]] && exit 1
 
 
-which keybase && return 1
+which keybase && false
 
 # Download Keybase
 curl https://prerelease.keybase.io/keybase_amd64.deb \
