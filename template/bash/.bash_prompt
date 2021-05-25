@@ -182,7 +182,7 @@ function __git_info {
   [ -n "$behindN" ] && marks+=" $GIT_NEED_PULL_SYMBOL$behindN"
 
   # print the git branch segment without a trailing newline
-  _fs bg:blue; echo -n " $GIT_BRANCH_SYMBOL$branch$marks "; _fr all;
+  _fs bg:blue fg:black; echo -n " $GIT_BRANCH_SYMBOL$branch$marks "; _fr all;
   return 1
 }
 
