@@ -193,8 +193,10 @@ function __git_info {
 function __devjail_info {
   local jails=()
 
-  # init Python virtualenv
+  # check if inside Python virtualenv
   [ $VIRTUAL_ENV ] && jails+=("py:$(basename $VIRTUAL_ENV) ")
+  # check if inside Conda environment
+  [ $CONDA_DEFAULT_ENV ] && jails+=("conda:$CONDA_DEFAULT_ENV " )
   # check if inside of docker container
   cat /proc/self/cgroup | grep '0::/system.slice/containerd.service' > /dev/null 2>&1 && \
       jails+=("dkr:$(hostname) ")

@@ -89,6 +89,8 @@ then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+[ -f /opt/conda/etc/profile.d/conda.sh ] && source  /opt/conda/etc/profile.d/conda.sh
+
 if command -v t &> /dev/null && [ -n "$PS1" ] &&
    [[ ! "$TERM_PROGRAM" == "vscode" ]] &&
    [[ ! "$TERM" =~ screen ]] &&

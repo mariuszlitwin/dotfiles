@@ -15,7 +15,6 @@ source "${__dir}/.invocation.sh"
 
 [[ "${__distro}" != 'elementary' && "${__distro}" != 'ubuntu' &&
    "${__distro}" != 'debian' ]] && exit 1
-[[ "${__desktop}" != 'MATE' ]] && exit 1
 
 # Update/Upgrade
 if [[ "${__mode}" = 'update' ]] || [[ "${__mode}" = 'bootstrap' ]]; then
