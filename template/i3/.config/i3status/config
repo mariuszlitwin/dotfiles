@@ -25,6 +25,7 @@ order += "cpu_usage"
 order += "load"
 order += "tztime au"
 order += "tztime ch"
+order += "tztime ny"
 order += "tztime ca"
 
 cpu_usage {
@@ -35,6 +36,10 @@ load {
  format = "💤  %1min %5min %15min"
 }
 
+tztime ny {
+  format = "〱 🗽  %Y-%m-%d %H:%M "
+  timezone = "America/New_York"
+}
 tztime ca {
   format = "〱 🦅  %Y-%m-%d %H:%M "
   timezone = "America/Los_Angeles"
